@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eclipse Spa | Where Tranquility Meets Transformation — Toronto, ON</title>
+  <title>Eclipse Spa &amp; Laser Centre | Advanced Skincare &amp; Facial Treatments — Niagara Falls, ON</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,15 +25,25 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { font-size: 16px; }
+    html {
+      font-size: 18px; /* Increased globally from 16px */
+      scroll-behavior: smooth;
+    }
+    @media (max-width: 768px) {
+      html { font-size: 16px; }
+    }
 
     body {
       font-family: 'Lato', sans-serif;
       background-color: var(--purple-whisper);
       color: #2D1A3E;
+      font-size: 1.05rem; /* Increased body text readability */
+      line-height: 1.75;
     }
 
-    h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', serif; }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cormorant Garamond', serif;
+    }
 
     ::selection { background: var(--purple-primary); color: #fff; }
     ::-webkit-scrollbar { width: 6px; }
@@ -41,6 +51,94 @@
     ::-webkit-scrollbar-thumb { background: var(--purple-accent); border-radius: 3px; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* ══ LUXURY ACCENTS & UTILITIES ═══════════════ */
+    .btn-gold {
+      background: linear-gradient(135deg, #E5C08A 0%, #D4AF7A 50%, #B89660 100%);
+      color: #1A0A2E !important;
+      border-radius: 9999px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(212,175,122,0.4), 0 2px 4px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      cursor: pointer;
+      text-decoration: none;
+      text-shadow: 0 0.5px 1px rgba(255,255,255,0.2);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212,175,122,0.6);
+      filter: brightness(1.05);
+    }
+
+    .btn-gold-sm {
+      background: linear-gradient(135deg, #E5C08A 0%, #D4AF7A 100%);
+      color: #1A0A2E !important;
+      border-radius: 9999px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 800;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 12px rgba(212,175,122,0.3);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-gold-sm:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(212,175,122,0.45);
+    }
+
+    /* Soft pink luxury card background with premium borders */
+    .pink-overlay-bg {
+      background: #FFF5F7 !important;
+      border: 1px solid rgba(245,183,195,0.35) !important;
+      box-shadow: 0 10px 30px rgba(245,183,195,0.12) !important;
+    }
+
+    /* Concern pill styles */
+    .concern-pill {
+      background: #fff;
+      border: 1px solid rgba(195,155,211,0.35);
+      color: #5A3575;
+      border-radius: 9999px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      padding: 10px 22px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(74,14,107,0.03);
+    }
+    .concern-pill:hover {
+      background: var(--purple-faint);
+      color: var(--purple-primary);
+      transform: translateY(-1.5px);
+      box-shadow: 0 4px 12px rgba(74,14,107,0.08);
+    }
+    .concern-pill.active {
+      background: var(--purple-primary);
+      color: #fff;
+      border-color: var(--purple-primary);
+      box-shadow: 0 4px 15px rgba(74,14,107,0.25);
+    }
 
     /* ══ HERO VIDEO ══════════════════════════════ */
     .hero-wrap {
@@ -621,73 +719,77 @@
         4.9 Star Rated on Google
       </span>
       <div class="flex items-center gap-6" style="font-size:11px;font-family:'Lato',sans-serif;font-weight:600;letter-spacing:.1em;text-transform:uppercase;">
-        <a href="https://maps.google.com/?q=123+Serenity+Lane,+Toronto,+ON" target="_blank" class="flex items-center gap-1.5 transition-opacity hover:opacity-70">
-          <i data-lucide="map-pin" class="w-3 h-3"></i> Toronto, ON
+        <a href="https://www.google.com/maps/search/?api=1&query=4383+Portage+Rd+Unit+B100+Niagara+Falls+ON+L2E+6A6" target="_blank" class="flex items-center gap-1.5 transition-opacity hover:opacity-70">
+          <i data-lucide="map-pin" class="w-3 h-3"></i> Niagara Falls, ON
         </a>
-        <a href="tel:+14165550199" class="flex items-center gap-1.5 transition-opacity hover:opacity-70">
-          <i data-lucide="phone" class="w-3 h-3"></i> (416) 555-0199
+        <a href="tel:+12892777140" class="flex items-center gap-1.5 transition-opacity hover:opacity-70">
+          <i data-lucide="phone" class="w-3 h-3"></i> (289) 277-7140
         </a>
       </div>
     </div>
   </div>
 
   <!-- ══ STICKY NAVIGATION ════════════════════════ -->
-  <nav class="sticky top-0 z-40 bg-white/92 backdrop-blur-xl border-b transition-all duration-300" id="main-nav"
-       style="border-color: rgba(195,155,211,0.25);">
+  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b transition-all duration-300 shadow-sm" id="main-nav"
+       style="border-color: rgba(195,155,211,0.2);">
     <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
 
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-2 z-50 relative">
-        <div style="width:36px;height:36px;position:relative;flex-shrink:0;">
-          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--purple-primary),var(--purple-accent));position:absolute;"></div>
-          <div style="width:24px;height:24px;border-radius:50%;background:var(--purple-whisper);position:absolute;top:6px;left:10px;"></div>
+      <a href="#" class="flex items-center gap-3 z-50 relative">
+        <div style="width:40px;height:40px;position:relative;flex-shrink:0;">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--purple-primary),var(--purple-accent));position:absolute;"></div>
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--purple-whisper);position:absolute;top:7px;left:11px;"></div>
         </div>
         <div>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--purple-primary);line-height:1;letter-spacing:.02em;">Eclipse</span>
-          <span style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--purple-accent);display:block;margin-top:-2px;">Spa</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--purple-primary);line-height:1;letter-spacing:.02em;display:block;">Eclipse</span>
+          <span style="font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--purple-accent);display:block;margin-top:1px;">Spa and Laser Centre</span>
         </div>
       </a>
 
-      <!-- Desktop Links -->
-      <div class="hidden lg:flex items-center gap-8"
-           style="font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#6B4F80;">
-        <a href="#services"     class="hover:text-purple-700 transition-colors" style="color:inherit;">Services</a>
-        <a href="#gallery"      class="hover:text-purple-700 transition-colors" style="color:inherit;">Gallery</a>
-        <a href="#team"         class="hover:text-purple-700 transition-colors" style="color:inherit;">Team</a>
-        <a href="#location"     class="hover:text-purple-700 transition-colors" style="color:inherit;">Location</a>
-        <a href="#appointments" class="hover:text-purple-700 transition-colors" style="color:inherit;">New Guests</a>
+      <!-- Desktop Links (Increased font size & improved spacing) -->
+      <div class="hidden lg:flex items-center gap-10"
+           style="font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#6B4F80;">
+        <a href="#services"     class="hover:text-purple-700 transition-colors" style="color:inherit;text-decoration:none;">Skin Concerns</a>
+        <a href="#gallery"      class="hover:text-purple-700 transition-colors" style="color:inherit;text-decoration:none;">Gallery</a>
+        <a href="#location"     class="hover:text-purple-700 transition-colors" style="color:inherit;text-decoration:none;">Location</a>
+        <a href="#appointments" class="hover:text-purple-700 transition-colors" style="color:inherit;text-decoration:none;">Book Consult</a>
       </div>
 
-      <!-- Desktop CTA -->
+      <!-- Desktop CTA (Prominent, highly-visible Gold Call button) -->
       <div class="hidden lg:flex items-center gap-4">
-        <div class="flex flex-col items-end mr-2">
-          <span style="font-family:'Lato',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#B8A0CC;">Toronto, ON</span>
-          <a href="tel:+14165550199" style="font-family:'Lato',sans-serif;font-size:13px;font-weight:700;color:var(--purple-primary);" class="hover:underline">(416) 555-0199</a>
-        </div>
-        <a href="#appointments" class="btn-primary">Book Now</a>
+        <a href="tel:+12892777140" class="btn-gold">
+          <i data-lucide="phone" class="w-4 h-4 text-purple-950"></i>
+          (289) 277-7140
+        </a>
       </div>
 
-      <!-- Mobile toggle -->
-      <button id="mobile-toggle" class="lg:hidden z-50 p-2" style="color:var(--purple-primary);" aria-label="Toggle Menu">
-        <i data-lucide="menu" class="w-7 h-7"></i>
-      </button>
+      <!-- Mobile Action buttons next to toggle -->
+      <div class="flex lg:hidden items-center gap-2 ml-auto z-50">
+        <!-- Sticky Gold Call Button (highly visible and clickable) -->
+        <a href="tel:+12892777140" class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-[#D4AF7A] to-[#B89660] text-purple-950 shadow-md" aria-label="Call Spa">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+        </a>
+        <!-- Mobile toggle -->
+        <button id="mobile-toggle" class="p-2 text-purple-900" aria-label="Toggle Menu">
+          <i data-lucide="menu" class="w-7 h-7"></i>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 z-40 flex-col pt-28 px-8 pb-10 overflow-y-auto menu-hidden"
          style="background:var(--purple-whisper);">
       <div class="flex flex-col gap-0">
-        <a href="#services"     class="mobile-link py-5 border-b flex items-center justify-between" style="border-color:rgba(195,155,211,.3);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);">Services <i data-lucide="arrow-right" class="w-5 h-5" style="opacity:.4;"></i></a>
-        <a href="#gallery"      class="mobile-link py-5 border-b flex items-center justify-between" style="border-color:rgba(195,155,211,.3);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);">Gallery <i data-lucide="arrow-right" class="w-5 h-5" style="opacity:.4;"></i></a>
-        <a href="#team"         class="mobile-link py-5 border-b flex items-center justify-between" style="border-color:rgba(195,155,211,.3);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);">Our Team <i data-lucide="arrow-right" class="w-5 h-5" style="opacity:.4;"></i></a>
-        <a href="#location"     class="mobile-link py-5 border-b flex items-center justify-between" style="border-color:rgba(195,155,211,.3);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);">Location <i data-lucide="arrow-right" class="w-5 h-5" style="opacity:.4;"></i></a>
-        <a href="#appointments" class="mobile-link py-5 flex items-center justify-between"          style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);">New Guests <i data-lucide="arrow-right" class="w-5 h-5" style="opacity:.4;"></i></a>
+        <a href="#services"     class="mobile-link py-5 border-b flex items-center justify-between" style="border-color:rgba(195,155,211,.3);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);text-decoration:none;">Skin Concerns <i data-lucide="arrow-right" class="w-5 h-5" style="opacity:.4;"></i></a>
+        <a href="#gallery"      class="mobile-link py-5 border-b flex items-center justify-between" style="border-color:rgba(195,155,211,.3);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);text-decoration:none;">Gallery <i data-lucide="arrow-right" class="w-5 h-5" style="opacity:.4;"></i></a>
+        <a href="#location"     class="mobile-link py-5 border-b flex items-center justify-between" style="border-color:rgba(195,155,211,.3);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);text-decoration:none;">Location <i data-lucide="arrow-right" class="w-5 h-5" style="opacity:.4;"></i></a>
+        <a href="#appointments" class="mobile-link py-5 flex items-center justify-between"          style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);text-decoration:none;">Book Consult <i data-lucide="arrow-right" class="w-5 h-5" style="opacity:.4;"></i></a>
       </div>
       <div class="mt-10 space-y-4">
-        <a href="#appointments" class="btn-primary w-full justify-center mobile-link">Book an Appointment</a>
-        <a href="tel:+14165550199" class="w-full flex items-center justify-center gap-2 py-4 rounded-full mobile-link"
-           style="border:1.5px solid var(--purple-primary);font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-primary);text-decoration:none;">
-          <i data-lucide="phone" class="w-4 h-4"></i> Call Us
+        <a href="#appointments" class="btn-gold w-full justify-center mobile-link">Book a Free Consult</a>
+        <a href="tel:+12892777140" class="w-full flex items-center justify-center gap-2 py-4 rounded-full mobile-link"
+           style="border:1.5px solid var(--purple-primary);font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-primary);text-decoration:none;">
+          <i data-lucide="phone" class="w-4 h-4"></i> Call Us Now
         </a>
       </div>
     </div>
@@ -715,40 +817,57 @@
     <div class="sparkle" style="top:10%;left:88%;--d:7s;animation-delay:2.2s;"></div>
 
     <!-- Content -->
-    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-16 pb-28" style="position:relative;z-index:4;">
-      <div class="max-w-2xl space-y-8">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20 pb-28" style="position:relative;z-index:4;">
+      <div class="max-w-3xl space-y-8">
         <div class="fade-up glass-badge">
           <i data-lucide="sparkles" class="w-3 h-3" style="color:var(--gold);"></i>
-          Luxury Spa &amp; Wellness — Toronto, Canada
+          Advanced Medical Aesthetics — Niagara Falls, ON
         </div>
-        <h1 class="fade-up delay-100 text-white" style="font-size:clamp(3rem,7vw,5.5rem);font-weight:400;line-height:1.08;letter-spacing:-.01em;">
-          Where Tranquility<br>
-          <em style="font-style:italic;font-weight:300;color:var(--gold-light);">Meets Transformation.</em>
+        <h1 class="fade-up delay-100 text-white" style="font-size:clamp(2.8rem,6.5vw,5rem);font-weight:700;line-height:1.1;letter-spacing:-.01em;">
+          Reimagining Beauty,<br>
+          <em style="font-style:italic;font-weight:300;color:var(--gold-light);">one treatment at a time.</em>
         </h1>
-        <div class="fade-up delay-200" style="border-left:2px solid rgba(212,175,122,.5);padding-left:24px;max-width:480px;">
-          <p style="font-family:'Lato',sans-serif;font-size:17px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.82);">
-            Surrender to serenity at Eclipse Spa — a sanctuary of luxury treatments, healing touch, and radiant renewal nestled in the heart of Toronto.
+        <div class="fade-up delay-200" style="border-left:2.5px solid var(--gold);padding-left:24px;max-width:540px;">
+          <p style="font-family:'Lato',sans-serif;font-size:18px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.88);">
+            Step into the next generation of skincare. Eclipse Spa &amp; Laser Centre combines advanced clinical technologies with custom medical-grade treatments to deliver powerful skin transformations and visible results.
           </p>
         </div>
-        <div class="fade-up delay-300 flex flex-col sm:flex-row gap-4 pt-2">
-          <a href="#appointments" class="btn-primary">
-            <i data-lucide="calendar-days" class="w-4 h-4"></i>
-            Book Your Prime
-          </a>
-          <a href="tel:+14165550199" class="btn-outline">
+        
+        <!-- Hero Action Buttons -->
+        <div class="fade-up delay-300 flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
+          <div class="flex flex-col gap-1.5 w-full sm:w-auto text-center sm:text-left">
+            <a href="#appointments" class="btn-gold justify-center">
+              <i data-lucide="calendar" class="w-4 h-4 text-purple-950"></i>
+              Book a Free Consult
+            </a>
+            <span style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.6);letter-spacing:.15em;text-transform:uppercase;font-weight:700;" class="mt-1">Limited Time Offer</span>
+          </div>
+          
+          <a href="tel:+12892777140" class="btn-outline w-full sm:w-auto justify-center">
             <i data-lucide="phone" class="w-4 h-4"></i>
-            (416) 555-0199
+            Call Now
           </a>
         </div>
-        <div class="fade-up delay-400 flex items-center gap-3 pt-2">
-          <div class="flex gap-1">
-            <i data-lucide="star" class="w-4 h-4" style="fill:var(--gold);stroke:var(--gold);"></i>
-            <i data-lucide="star" class="w-4 h-4" style="fill:var(--gold);stroke:var(--gold);"></i>
-            <i data-lucide="star" class="w-4 h-4" style="fill:var(--gold);stroke:var(--gold);"></i>
-            <i data-lucide="star" class="w-4 h-4" style="fill:var(--gold);stroke:var(--gold);"></i>
-            <i data-lucide="star" class="w-4 h-4" style="fill:var(--gold);stroke:var(--gold);"></i>
+        
+        <!-- Google Trust Badge (Upgraded size & design) -->
+        <div class="fade-up delay-400 flex items-center gap-4 pt-4">
+          <div class="bg-white/95 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-xl flex items-center gap-3.5 max-w-xs transition-all hover:scale-[1.02]">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-8 h-8 flex-shrink-0" />
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-purple-950 font-black text-base">4.9</span>
+                <div class="flex gap-0.5">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-[#F5A623] stroke-[#F5A623]"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-[#F5A623] stroke-[#F5A623]"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-[#F5A623] stroke-[#F5A623]"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-[#F5A623] stroke-[#F5A623]"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-[#F5A623] stroke-[#F5A623]"></i>
+                </div>
+              </div>
+              <div class="text-[9px] text-purple-700/80 uppercase tracking-widest font-black">Google Verified Reviews</div>
+            </div>
           </div>
-          <span style="font-family:'Lato',sans-serif;font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.1em;">4.9 Stars · 300+ Happy Guests</span>
+          <span style="font-family:'Lato',sans-serif;font-size:13px;color:rgba(255,255,255,.78);letter-spacing:.05em;max-width:200px;line-height:1.4;">Trusted by 300+ guests in Niagara Region</span>
         </div>
       </div>
       <!-- Scroll hint -->
@@ -768,408 +887,794 @@
     </div>
   </header>
 
-  <!-- ══ SERVICES SECTION ══════════════════════════ -->
-  <section id="services" style="background:#fff;padding:7rem 0;">
+  <!-- ══ SKIN CONCERNS / TREATMENTS SECTION ════════ -->
+  <section id="services" style="background:#fff;padding:6rem 0 7rem;">
     <div class="max-w-7xl mx-auto px-6">
 
       <!-- Heading -->
-      <div class="text-center max-w-2xl mx-auto mb-14 space-y-4">
-        <span class="section-eyebrow">Curated Treatments</span>
-        <h2 style="font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;color:#1A0A2E;letter-spacing:-.01em;line-height:1.15;">
-          Rituals for Every<br><em style="font-style:italic;">Body &amp; Soul</em>
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+        <span class="section-eyebrow">Targeted Transformation</span>
+        <h2 style="font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;color:#1A0A2E;letter-spacing:-.01em;line-height:1.15;">
+          What’s Your Current Skin Concern?<br>
+          <em style="font-style:italic;font-weight:300;color:var(--purple-accent);">Our treatments are built for you.</em>
         </h2>
         <div class="divider-ornament">
           <i data-lucide="sparkles" class="w-4 h-4" style="color:var(--gold);flex-shrink:0;"></i>
         </div>
-        <p style="font-family:'Lato',sans-serif;font-size:15px;font-weight:300;color:#7A5A90;line-height:1.7;">
-          From transformative skin treatments to deeply soothing therapies — each service is crafted with intention and care.
+        <p style="font-family:'Lato',sans-serif;font-size:16px;font-weight:300;color:#7A5A90;line-height:1.75;">
+          Select your primary skin concern below to discover our clinically proven, advanced treatment solutions customized just for you.
         </p>
       </div>
 
-      <!-- Services Grid — click any card to flip and reveal treatment details -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+      <!-- Concern Selector Pills -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12 max-w-5xl mx-auto" style="position:relative;z-index:10;">
+        <button class="concern-pill active" data-filter="all">
+          <i data-lucide="layout-grid" class="w-4 h-4 inline mr-1.5"></i> Show All Solutions
+        </button>
+        <button class="concern-pill" data-filter="acne-scarring">
+          <i data-lucide="sparkles" class="w-4 h-4 inline mr-1.5"></i> Acne Scarring
+        </button>
+        <button class="concern-pill" data-filter="melasma">
+          <i data-lucide="droplets" class="w-4 h-4 inline mr-1.5"></i> Melasma &amp; Pigment
+        </button>
+        <button class="concern-pill" data-filter="rosacea">
+          <i data-lucide="shield-alert" class="w-4 h-4 inline mr-1.5"></i> Rosacea &amp; Redness
+        </button>
+        <button class="concern-pill" data-filter="wrinkles">
+          <i data-lucide="hourglass" class="w-4 h-4 inline mr-1.5"></i> Fine Lines &amp; Wrinkles
+        </button>
+        <button class="concern-pill" data-filter="texture">
+          <i data-lucide="gem" class="w-4 h-4 inline mr-1.5"></i> Uneven Texture
+        </button>
+        <button class="concern-pill" data-filter="acne">
+          <i data-lucide="activity" class="w-4 h-4 inline mr-1.5"></i> Active Acne &amp; Pores
+        </button>
+        <button class="concern-pill" data-filter="dullness">
+          <i data-lucide="sun" class="w-4 h-4 inline mr-1.5"></i> Dull Skin / Glow
+        </button>
+        <button class="concern-pill" data-filter="sun-damage">
+          <i data-lucide="sun-dim" class="w-4 h-4 inline mr-1.5"></i> Sun Damage
+        </button>
+        <button class="concern-pill" data-filter="dehydrated">
+          <i data-lucide="droplet" class="w-4 h-4 inline mr-1.5"></i> Dehydrated Skin
+        </button>
+        <button class="concern-pill" data-filter="hair">
+          <i data-lucide="zap" class="w-4 h-4 inline mr-1.5"></i> Unwanted Hair
+        </button>
+        <button class="concern-pill" data-filter="lash-brow">
+          <i data-lucide="eye" class="w-4 h-4 inline mr-1.5"></i> Lash &amp; Brow
+        </button>
+        <button class="concern-pill" data-filter="tension">
+          <i data-lucide="heart" class="w-4 h-4 inline mr-1.5"></i> Muscle Tension
+        </button>
+      </div>
 
-        <!-- 1 — Signature Facials → back: BelaMD Skin Polishing Facial -->
-        <div class="flip-wrapper reveal" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="flip-img-wrap">
-                <img src="assets/room1.jpg" alt="Signature Facials" loading="lazy"/>
-                <div class="flip-img-overlay"></div>
-                <span class="flip-tap-front">Tap to discover</span>
-              </div>
-              <div class="flip-body">
-                <div class="flip-icon-pill"><i data-lucide="sparkles" class="w-3 h-3"></i> Facials</div>
-                <h3 style="font-size:16px;font-weight:500;color:#1A0A2E;line-height:1.2;">Signature Facials</h3>
-                <p style="font-family:'Lato',sans-serif;font-size:11px;color:#8A6AA0;margin-top:6px;line-height:1.6;">Custom facials tailored to your unique skin needs.</p>
-              </div>
-            </div>
-            <div class="flip-back">
-              <span class="flip-close-hint">← tap to close</span>
-              <p class="flip-back-label">Eclipse Spa — Facials</p>
-              <h3 class="flip-back-title">Skin Polishing Facial</h3>
-              <p class="flip-back-sub">with BelaMD</p>
-              <p class="flip-back-desc">Customizable Microdermabrasion facial for a brighter, clearer complexion.</p>
-              <div class="flip-badges">
-                <span class="flip-badge-time">30–60 Mins</span>
-                <span class="flip-badge-price">$150–$300</span>
-              </div>
-              <a href="#appointments" class="flip-book-btn" onclick="event.stopPropagation();">Book This Treatment</a>
-            </div>
-          </div>
-        </div>
+      <!-- Treatments / Concerns Grid -->
+      <div id="treatments-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-10">
 
-        <!-- 2 — Therapeutic Massage → back: info panel -->
-        <div class="flip-wrapper reveal" onclick="this.classList.toggle('flipped')">
+        <!-- 1 — Acne Scarring ➔ DP4 Microneedle -->
+        <div class="flip-wrapper reveal" id="card-acne-scarring" data-concern="acne-scarring" onclick="this.classList.toggle('flipped')" style="height:380px;">
           <div class="flip-inner">
-            <div class="flip-front">
-              <div class="flip-img-wrap">
-                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=500&q=80"
-                     alt="Therapeutic Massage" loading="lazy" onerror="this.style.display='none'"/>
-                <div class="flip-img-overlay"></div>
-                <span class="flip-tap-front">Tap to discover</span>
-              </div>
-              <div class="flip-body">
-                <div class="flip-icon-pill"><i data-lucide="heart-pulse" class="w-3 h-3"></i> Massage</div>
-                <h3 style="font-size:16px;font-weight:500;color:#1A0A2E;line-height:1.2;">Therapeutic Massage</h3>
-                <p style="font-family:'Lato',sans-serif;font-size:11px;color:#8A6AA0;margin-top:6px;line-height:1.6;">Swedish, deep tissue &amp; hot stone for full-body relief.</p>
-              </div>
-            </div>
-            <div class="flip-back">
-              <span class="flip-close-hint">← tap to close</span>
-              <p class="flip-back-label">Eclipse Spa — Wellness</p>
-              <h3 class="flip-back-title">Deep Relaxation Therapy</h3>
-              <p class="flip-back-sub">Therapeutic Massage</p>
-              <p class="flip-back-desc">Swedish, deep tissue &amp; hot stone massage fully tailored to your body's needs and tension points.</p>
-              <div class="flip-badges">
-                <span class="flip-badge-time">60–90 Mins</span>
-                <span class="flip-badge-price">From $120</span>
-              </div>
-              <a href="#appointments" class="flip-book-btn" onclick="event.stopPropagation();">Book This Treatment</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3 — Body Wraps & Scrubs → back: info panel -->
-        <div class="flip-wrapper reveal" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="flip-img-wrap">
-                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=500&q=80"
-                     alt="Body Wraps and Scrubs" loading="lazy" onerror="this.style.display='none'"/>
-                <div class="flip-img-overlay"></div>
-                <span class="flip-tap-front">Tap to discover</span>
-              </div>
-              <div class="flip-body">
-                <div class="flip-icon-pill"><i data-lucide="droplets" class="w-3 h-3"></i> Body</div>
-                <h3 style="font-size:16px;font-weight:500;color:#1A0A2E;line-height:1.2;">Body Wraps &amp; Scrubs</h3>
-                <p style="font-family:'Lato',sans-serif;font-size:11px;color:#8A6AA0;margin-top:6px;line-height:1.6;">Detoxifying and nourishing full-body treatments.</p>
-              </div>
-            </div>
-            <div class="flip-back">
-              <span class="flip-close-hint">← tap to close</span>
-              <p class="flip-back-label">Eclipse Spa — Body</p>
-              <h3 class="flip-back-title">Detox &amp; Glow</h3>
-              <p class="flip-back-sub">Body Rituals</p>
-              <p class="flip-back-desc">Nourishing wraps and exfoliating scrubs to reveal luminous, silky skin from head to toe.</p>
-              <div class="flip-badges">
-                <span class="flip-badge-time">60–75 Mins</span>
-                <span class="flip-badge-price">From $130</span>
-              </div>
-              <a href="#appointments" class="flip-book-btn" onclick="event.stopPropagation();">Book This Treatment</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4 — Laser → back: Focus Laser Facial (PicoSure) -->
-        <div class="flip-wrapper reveal" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="flip-img-wrap">
-                <img src="assets/room4.jpg" alt="Laser Hair Removal" loading="lazy"/>
-                <div class="flip-img-overlay"></div>
-                <span class="flip-tap-front">Tap to discover</span>
-              </div>
-              <div class="flip-body">
-                <div class="flip-icon-pill"><i data-lucide="zap" class="w-3 h-3"></i> Laser</div>
-                <h3 style="font-size:16px;font-weight:500;color:#1A0A2E;line-height:1.2;">Laser Hair Removal</h3>
-                <p style="font-family:'Lato',sans-serif;font-size:11px;color:#8A6AA0;margin-top:6px;line-height:1.6;">Advanced IPL &amp; laser technology for lasting results.</p>
-              </div>
-            </div>
-            <div class="flip-back">
-              <span class="flip-close-hint">← tap to close</span>
-              <p class="flip-back-label">Eclipse Spa — Laser</p>
-              <h3 class="flip-back-title">Focus Laser Facial</h3>
-              <p class="flip-back-sub">PicoSure Technology</p>
-              <p class="flip-back-desc">Target skin imperfections. Improve texture, reduce wrinkles &amp; acne scars with minimal downtime.</p>
-              <div class="flip-badges">
-                <span class="flip-badge-time">45–60 Mins</span>
-                <span class="flip-badge-price">$400–$950</span>
-              </div>
-              <a href="#appointments" class="flip-book-btn" onclick="event.stopPropagation();">Book This Treatment</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5 — Microdermabrasion → back: DP4 Microneedle -->
-        <div class="flip-wrapper reveal" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="flip-img-wrap">
-                <img src="assets/room2.jpg" alt="Microdermabrasion" loading="lazy"/>
-                <div class="flip-img-overlay"></div>
-                <span class="flip-tap-front">Tap to discover</span>
-              </div>
-              <div class="flip-body">
-                <div class="flip-icon-pill"><i data-lucide="gem" class="w-3 h-3"></i> Skin</div>
-                <h3 style="font-size:16px;font-weight:500;color:#1A0A2E;line-height:1.2;">Microdermabrasion</h3>
-                <p style="font-family:'Lato',sans-serif;font-size:11px;color:#8A6AA0;margin-top:6px;line-height:1.6;">Crystal-clear skin resurfacing for renewed radiance.</p>
-              </div>
-            </div>
-            <div class="flip-back">
-              <span class="flip-close-hint">← tap to close</span>
-              <p class="flip-back-label">Eclipse Spa — Advanced Skin</p>
-              <h3 class="flip-back-title">DP4 Microneedle</h3>
-              <p class="flip-back-sub">Collagen Induction Therapy</p>
-              <p class="flip-back-desc">Transform your skin. Boost collagen, improve texture and visibly reduce scars.</p>
-              <div class="flip-badges">
-                <span class="flip-badge-time">45 Mins</span>
-                <span class="flip-badge-price">From $300</span>
-              </div>
-              <a href="#appointments" class="flip-book-btn" onclick="event.stopPropagation();">Book This Treatment</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6 — Lash & Brow → back: info panel -->
-        <div class="flip-wrapper reveal" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="flip-img-wrap">
-                <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=500&q=80"
-                     alt="Lash and Brow" loading="lazy" onerror="this.style.display='none'"/>
-                <div class="flip-img-overlay"></div>
-                <span class="flip-tap-front">Tap to discover</span>
-              </div>
-              <div class="flip-body">
-                <div class="flip-icon-pill"><i data-lucide="eye" class="w-3 h-3"></i> Lash &amp; Brow</div>
-                <h3 style="font-size:16px;font-weight:500;color:#1A0A2E;line-height:1.2;">Lash &amp; Brow</h3>
-                <p style="font-family:'Lato',sans-serif;font-size:11px;color:#8A6AA0;margin-top:6px;line-height:1.6;">Lash lifts, tints &amp; precision brow sculpting.</p>
-              </div>
-            </div>
-            <div class="flip-back">
-              <span class="flip-close-hint">← tap to close</span>
-              <p class="flip-back-label">Eclipse Spa — Beauty</p>
-              <h3 class="flip-back-title">Define &amp; Illuminate</h3>
-              <p class="flip-back-sub">Lash &amp; Brow Studio</p>
-              <p class="flip-back-desc">Precision lash lifts, tints &amp; brow sculpting for beautifully defined, expressive eyes.</p>
-              <div class="flip-badges">
-                <span class="flip-badge-time">45–60 Mins</span>
-                <span class="flip-badge-price">From $75</span>
-              </div>
-              <a href="#appointments" class="flip-book-btn" onclick="event.stopPropagation();">Book This Treatment</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 7 — Waxing → back: info panel -->
-        <div class="flip-wrapper reveal" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="flip-img-wrap">
-                <img src="assets/room3.jpg" alt="Waxing Services" loading="lazy"/>
-                <div class="flip-img-overlay"></div>
-                <span class="flip-tap-front">Tap to discover</span>
-              </div>
-              <div class="flip-body">
-                <div class="flip-icon-pill"><i data-lucide="feather" class="w-3 h-3"></i> Waxing</div>
-                <h3 style="font-size:16px;font-weight:500;color:#1A0A2E;line-height:1.2;">Waxing Services</h3>
-                <p style="font-family:'Lato',sans-serif;font-size:11px;color:#8A6AA0;margin-top:6px;line-height:1.6;">Smooth, long-lasting hair removal with precision.</p>
-              </div>
-            </div>
-            <div class="flip-back">
-              <span class="flip-close-hint">← tap to close</span>
-              <p class="flip-back-label">Eclipse Spa — Hair Removal</p>
-              <h3 class="flip-back-title">Silky Smooth</h3>
-              <p class="flip-back-sub">Professional Waxing</p>
-              <p class="flip-back-desc">Professional, gentle hair removal using premium wax for long-lasting, flawless smoothness.</p>
-              <div class="flip-badges">
-                <span class="flip-badge-time">15–60 Mins</span>
-                <span class="flip-badge-price">From $25</span>
-              </div>
-              <a href="#appointments" class="flip-book-btn" onclick="event.stopPropagation();">Book This Treatment</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8 — Skin Rejuvenation → back: Radiance Peel (Vivier) + PicoSure Laser -->
-        <div class="flip-wrapper reveal" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="flip-img-wrap">
-                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=500&q=80"
-                     alt="Skin Rejuvenation" loading="lazy" onerror="this.style.display='none'"/>
-                <div class="flip-img-overlay"></div>
-                <span class="flip-tap-front">Tap to discover</span>
-              </div>
-              <div class="flip-body">
-                <div class="flip-icon-pill"><i data-lucide="sun" class="w-3 h-3"></i> Rejuvenation</div>
-                <h3 style="font-size:16px;font-weight:500;color:#1A0A2E;line-height:1.2;">Skin Rejuvenation</h3>
-                <p style="font-family:'Lato',sans-serif;font-size:11px;color:#8A6AA0;margin-top:6px;line-height:1.6;">Chemical peels &amp; photo facials for luminous skin.</p>
-              </div>
-            </div>
-            <div class="flip-back">
-              <span class="flip-close-hint">← tap to close</span>
-              <p class="flip-back-label">Eclipse Spa — Rejuvenation</p>
-              <h3 class="flip-back-title">Radiance Peel</h3>
-              <p class="flip-back-sub">Vivier Skin Care</p>
-              <p class="flip-back-desc">Award-winning chemical peel that exfoliates &amp; rejuvenates, reducing fine lines and uneven tone.</p>
-              <div class="flip-badges">
-                <span class="flip-badge-time">30 Mins</span>
-                <span class="flip-badge-price">$150</span>
-              </div>
-              <a href="#appointments" class="flip-book-btn" onclick="event.stopPropagation();">Book This Treatment</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 9 — Refining Peel -->
-        <div class="flip-wrapper reveal" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="flip-img-wrap">
-                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=500&q=80"
-                     alt="Refining Peel" loading="lazy" onerror="this.style.display='none'"/>
-                <div class="flip-img-overlay"></div>
-                <span class="flip-tap-front">Tap to discover</span>
-              </div>
-              <div class="flip-body">
-                <div class="flip-icon-pill"><i data-lucide="zap" class="w-3 h-3"></i> Chemical Peel</div>
-                <h3 style="font-size:16px;font-weight:500;color:#1A0A2E;line-height:1.2;">Refining Peel</h3>
-                <p style="font-family:'Lato',sans-serif;font-size:11px;color:#8A6AA0;margin-top:6px;line-height:1.6;">Advanced Jessner peel targeting dark spots &amp; fine lines.</p>
-              </div>
-            </div>
-            <div class="flip-back" style="background-image:url('assets/promo_refining_peel.jpg');background-size:cover;background-position:center;">
-              <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,10,46,0.88) 0%,rgba(74,14,107,0.82) 100%);border-radius:inherit;"></div>
-              <div style="position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:20px 18px;">
-                <span class="flip-close-hint" style="position:static;margin-bottom:auto;">← tap to close</span>
-                <p class="flip-back-label">Eclipse Spa — Chemical Peel</p>
-                <h3 class="flip-back-title">Refining Peel</h3>
-                <p class="flip-back-sub">Advanced Jessner Formula</p>
-                <p class="flip-back-desc">Targets dark spots, fine lines &amp; uneven skin tone for a visibly smoother, luminous complexion.</p>
-                <div class="flip-badges">
-                  <span class="flip-badge-time">30 Mins</span>
-                  <span class="flip-badge-price">$150</span>
+            <!-- Front -->
+            <div class="flip-front pink-overlay-bg flex flex-col justify-between h-full p-6">
+              <div class="flex flex-col h-full justify-between">
+                <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-purple-100 flex-shrink-0">
+                  <img src="assets/room2.jpg" alt="DP4 Microneedling" class="w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute top-3 left-3 bg-purple-900/90 text-white font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="sparkles" class="w-2.5 h-2.5"></i> Facial
+                  </div>
+                  <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white font-medium text-[9px] px-2 py-0.5 rounded">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 inline mr-1"></i> 45 Mins
+                  </div>
                 </div>
-                <a href="#appointments" class="flip-book-btn" onclick="event.stopPropagation();">Book This Treatment</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 10 — Refresh Facial -->
-        <div class="flip-wrapper reveal" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="flip-img-wrap">
-                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=500&q=80"
-                     alt="Refresh Facial" loading="lazy" onerror="this.style.display='none'"/>
-                <div class="flip-img-overlay"></div>
-                <span class="flip-tap-front">Tap to discover</span>
-              </div>
-              <div class="flip-body">
-                <div class="flip-icon-pill"><i data-lucide="droplets" class="w-3 h-3"></i> Facial</div>
-                <h3 style="font-size:16px;font-weight:500;color:#1A0A2E;line-height:1.2;">Refresh Facial</h3>
-                <p style="font-family:'Lato',sans-serif;font-size:11px;color:#8A6AA0;margin-top:6px;line-height:1.6;">Cleanses, exfoliates &amp; infuses deep moisture.</p>
-              </div>
-            </div>
-            <div class="flip-back" style="background-image:url('assets/promo_refresh_facial.jpg');background-size:cover;background-position:center;">
-              <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,10,46,0.88) 0%,rgba(74,14,107,0.82) 100%);border-radius:inherit;"></div>
-              <div style="position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:20px 18px;">
-                <span class="flip-close-hint" style="position:static;margin-bottom:auto;">← tap to close</span>
-                <p class="flip-back-label">Eclipse Spa — Facial</p>
-                <h3 class="flip-back-title">Refresh Facial</h3>
-                <p class="flip-back-sub">Hydration &amp; Renewal</p>
-                <p class="flip-back-desc">A cleansing, exfoliating and moisture-infusing facial that leaves your skin dewy, balanced and refreshed.</p>
-                <div class="flip-badges">
-                  <span class="flip-badge-time">45 Mins</span>
-                  <span class="flip-badge-price">$100</span>
+                <div class="mt-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 class="font-serif text-2xl font-bold text-purple-950 leading-tight">DP4 Microneedle</h3>
+                    <p class="text-xs text-purple-700/80 font-bold uppercase tracking-wider mt-1">Acne Scarring Solution</p>
+                  </div>
+                  <div class="mt-3 text-xs text-purple-900/80 space-y-1">
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Promotes rapid collagen induction</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Visibly reduces deep acne scars</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Refines overall skin texture</div>
+                  </div>
                 </div>
-                <a href="#appointments" class="flip-book-btn" onclick="event.stopPropagation();">Book This Treatment</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 11 — Soothing & Clarifying Facial -->
-        <div class="flip-wrapper reveal" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="flip-img-wrap">
-                <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=500&q=80"
-                     alt="Soothing and Clarifying Facial" loading="lazy" onerror="this.style.display='none'"/>
-                <div class="flip-img-overlay"></div>
-                <span class="flip-tap-front">Tap to discover</span>
-              </div>
-              <div class="flip-body">
-                <div class="flip-icon-pill"><i data-lucide="wind" class="w-3 h-3"></i> Clarifying</div>
-                <h3 style="font-size:16px;font-weight:500;color:#1A0A2E;line-height:1.2;">Soothing &amp; Clarifying Facial</h3>
-                <p style="font-family:'Lato',sans-serif;font-size:11px;color:#8A6AA0;margin-top:6px;line-height:1.6;">Calms acne-prone skin &amp; reduces oil &amp; pores.</p>
-              </div>
-            </div>
-            <div class="flip-back" style="background-image:url('assets/promo_soothing_facial.jpg');background-size:cover;background-position:center;">
-              <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,10,46,0.88) 0%,rgba(74,14,107,0.82) 100%);border-radius:inherit;"></div>
-              <div style="position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:20px 18px;">
-                <span class="flip-close-hint" style="position:static;margin-bottom:auto;">← tap to close</span>
-                <p class="flip-back-label">Eclipse Spa — Clarifying</p>
-                <h3 class="flip-back-title">Soothing &amp; Clarifying Facial</h3>
-                <p class="flip-back-sub">Acne &amp; Sensitivity Relief</p>
-                <p class="flip-back-desc">Clears and calms acne-prone skin, reducing inflammation, excess oil and enlarged pores for a clearer complexion.</p>
-                <div class="flip-badges">
-                  <span class="flip-badge-time">45 Mins</span>
-                  <span class="flip-badge-price">$100</span>
+                <div class="mt-4 pt-2 border-t border-purple-200/50 flex justify-between items-center text-[10px] text-purple-500 uppercase tracking-widest font-bold">
+                  <span>Tap to discover</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
                 </div>
-                <a href="#appointments" class="flip-book-btn" onclick="event.stopPropagation();">Book This Treatment</a>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- 12 — Timeless Facial -->
-        <div class="flip-wrapper reveal" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="flip-img-wrap">
-                <img src="https://images.unsplash.com/photo-1531299244174-d247dd4e5a66?auto=format&fit=crop&w=500&q=80"
-                     alt="Timeless Facial" loading="lazy" onerror="this.style.display='none'"/>
-                <div class="flip-img-overlay"></div>
-                <span class="flip-tap-front">Tap to discover</span>
-              </div>
-              <div class="flip-body">
-                <div class="flip-icon-pill"><i data-lucide="hourglass" class="w-3 h-3"></i> Anti-Aging</div>
-                <h3 style="font-size:16px;font-weight:500;color:#1A0A2E;line-height:1.2;">Timeless Facial</h3>
-                <p style="font-family:'Lato',sans-serif;font-size:11px;color:#8A6AA0;margin-top:6px;line-height:1.6;">Hydrate, brighten &amp; reduce fine lines with age-defying care.</p>
-              </div>
-            </div>
-            <div class="flip-back" style="background-image:url('assets/promo_timeless_facial.jpg');background-size:cover;background-position:center;">
-              <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,10,46,0.88) 0%,rgba(74,14,107,0.82) 100%);border-radius:inherit;"></div>
-              <div style="position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:20px 18px;">
-                <span class="flip-close-hint" style="position:static;margin-bottom:auto;">← tap to close</span>
-                <p class="flip-back-label">Eclipse Spa — Anti-Aging</p>
-                <h3 class="flip-back-title">Timeless Facial</h3>
-                <p class="flip-back-sub">Age-Defying Luxury</p>
-                <p class="flip-back-desc">A premium anti-aging facial to hydrate, brighten and visibly reduce fine lines for a youthful, radiant glow.</p>
-                <div class="flip-badges">
-                  <span class="flip-badge-time">45 Mins</span>
-                  <span class="flip-badge-price">$100</span>
+            <!-- Back -->
+            <div class="flip-back flex flex-col justify-between h-full p-6 text-white" style="background: linear-gradient(135deg, #1A0A2E 0%, #4A0E6B 100%);">
+              <div class="flex flex-col h-full justify-between relative z-10">
+                <div class="flex justify-between items-center text-[9px] text-purple-300 uppercase tracking-widest font-bold">
+                  <span class="flex items-center gap-1"><i data-lucide="info" class="w-3 h-3"></i> Advanced Aesthetics</span>
+                  <span class="text-gold">Tap to Close ×</span>
                 </div>
-                <a href="#appointments" class="flip-book-btn" onclick="event.stopPropagation();">Book This Treatment</a>
+                <div class="mt-3">
+                  <div class="text-[10px] text-gold font-bold uppercase tracking-widest">Technology</div>
+                  <h4 class="font-serif text-2xl text-white font-bold leading-tight mt-0.5">DP4 Microneedle</h4>
+                  <p class="text-xs text-purple-200 mt-2 leading-relaxed">
+                    Elevate skin recovery. Using medical-grade **DP4 Microneedle** technology, this clinical treatment triggers natural healing to lift, firm, and dramatically diminish scarring.
+                  </p>
+                </div>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-purple-100/90 space-y-1">
+                  <div><strong>Best For:</strong> Deep rolling/boxcar acne scars &amp; texture.</div>
+                  <div><strong>Downtime:</strong> Minimal (1-2 days mild flushing).</div>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                  <a href="#appointments" class="btn-gold-sm justify-center w-full" onclick="event.stopPropagation();">
+                    Book a Free Consult
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-      </div><!-- /services grid -->
+        <!-- 2 — Melasma & Pigment ➔ PicoSure Pro Laser -->
+        <div class="flip-wrapper reveal" id="card-melasma" data-concern="melasma" onclick="this.classList.toggle('flipped')" style="height:380px;">
+          <div class="flip-inner">
+            <!-- Front -->
+            <div class="flip-front pink-overlay-bg flex flex-col justify-between h-full p-6">
+              <div class="flex flex-col h-full justify-between">
+                <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-purple-100 flex-shrink-0">
+                  <img src="assets/room4.jpg" alt="PicoSure Pro Laser" class="w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute top-3 left-3 bg-purple-900/90 text-white font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="zap" class="w-2.5 h-2.5"></i> Laser
+                  </div>
+                  <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white font-medium text-[9px] px-2 py-0.5 rounded">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 inline mr-1"></i> 45 Mins
+                  </div>
+                </div>
+                <div class="mt-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 class="font-serif text-2xl font-bold text-purple-950 leading-tight">PicoSure Pro Laser</h3>
+                    <p class="text-xs text-purple-700/80 font-bold uppercase tracking-wider mt-1">Hyperpigmentation &amp; Melasma</p>
+                  </div>
+                  <div class="mt-3 text-xs text-purple-900/80 space-y-1">
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Breaks down deep skin pigment</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Fades stubborn melasma safely</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Reveals a bright, uniform skin tone</div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-2 border-t border-purple-200/50 flex justify-between items-center text-[10px] text-purple-500 uppercase tracking-widest font-bold">
+                  <span>Tap to discover</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="flip-back flex flex-col justify-between h-full p-6 text-white" style="background: linear-gradient(135deg, #1A0A2E 0%, #4A0E6B 100%);">
+              <div class="flex flex-col h-full justify-between relative z-10">
+                <div class="flex justify-between items-center text-[9px] text-purple-300 uppercase tracking-widest font-bold">
+                  <span class="flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3"></i> Premium Laser</span>
+                  <span class="text-gold">Tap to Close ×</span>
+                </div>
+                <div class="mt-3">
+                  <div class="text-[10px] text-gold font-bold uppercase tracking-widest">Technology</div>
+                  <h4 class="font-serif text-2xl text-white font-bold leading-tight mt-0.5">PicoSure Pro</h4>
+                  <p class="text-xs text-purple-200 mt-2 leading-relaxed">
+                    Unleash clinical power. The world-renowned **PicoSure Pro** picosecond laser delivers pressure wave pulses to break up pigment without heat damage, clearing melasma and dark spots.
+                  </p>
+                </div>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-purple-100/90 space-y-1">
+                  <div><strong>Best For:</strong> Persistent melasma, freckles, age spots.</div>
+                  <div><strong>Downtime:</strong> Zero. Normal activities immediately.</div>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                  <a href="#appointments" class="btn-gold-sm justify-center w-full" onclick="event.stopPropagation();">
+                    Book a Free Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 — Rosacea & Redness ➔ Soothing Clarifying Facial -->
+        <div class="flip-wrapper reveal" id="card-rosacea" data-concern="rosacea" onclick="this.classList.toggle('flipped')" style="height:380px;">
+          <div class="flip-inner">
+            <!-- Front -->
+            <div class="flip-front pink-overlay-bg flex flex-col justify-between h-full p-6">
+              <div class="flex flex-col h-full justify-between">
+                <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-purple-100 flex-shrink-0">
+                  <img src="assets/room1.jpg" alt="Soothing Clarifying Facial" class="w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute top-3 left-3 bg-purple-900/90 text-white font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="sparkles" class="w-2.5 h-2.5"></i> Facial
+                  </div>
+                  <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white font-medium text-[9px] px-2 py-0.5 rounded">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 inline mr-1"></i> 60 Mins
+                  </div>
+                </div>
+                <div class="mt-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 class="font-serif text-2xl font-bold text-purple-950 leading-tight">Soothing Facial</h3>
+                    <p class="text-xs text-purple-700/80 font-bold uppercase tracking-wider mt-1">Rosacea &amp; Flushing Relief</p>
+                  </div>
+                  <div class="mt-3 text-xs text-purple-900/80 space-y-1">
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Calms acute vascular redness</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Deeply hydrates sensitive barriers</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Cools and alleviates inflammation</div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-2 border-t border-purple-200/50 flex justify-between items-center text-[10px] text-purple-500 uppercase tracking-widest font-bold">
+                  <span>Tap to discover</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="flip-back flex flex-col justify-between h-full p-6 text-white" style="background: linear-gradient(135deg, #1A0A2E 0%, #4A0E6B 100%);">
+              <div class="flex flex-col h-full justify-between relative z-10">
+                <div class="flex justify-between items-center text-[9px] text-purple-300 uppercase tracking-widest font-bold">
+                  <span class="flex items-center gap-1"><i data-lucide="info" class="w-3 h-3"></i> Advanced Aesthetics</span>
+                  <span class="text-gold">Tap to Close ×</span>
+                </div>
+                <div class="mt-3">
+                  <div class="text-[10px] text-gold font-bold uppercase tracking-widest">Technology</div>
+                  <h4 class="font-serif text-2xl text-white font-bold leading-tight mt-0.5">Clinical Calming</h4>
+                  <p class="text-xs text-purple-200 mt-2 leading-relaxed">
+                    Designed for reactive skin. Our proprietary calming protocols utilize high-potency vascular-soothing serums and cooling oxygen therapy to alleviate flushing, redness, and irritation.
+                  </p>
+                </div>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-purple-100/90 space-y-1">
+                  <div><strong>Best For:</strong> Rosacea, vascular redness, eczema flares.</div>
+                  <div><strong>Downtime:</strong> Zero. Calms skin instantly.</div>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                  <a href="#appointments" class="btn-gold-sm justify-center w-full" onclick="event.stopPropagation();">
+                    Book a Free Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 — Fine Lines & Wrinkles ➔ Timeless Facial -->
+        <div class="flip-wrapper reveal" id="card-wrinkles" data-concern="wrinkles" onclick="this.classList.toggle('flipped')" style="height:380px;">
+          <div class="flip-inner">
+            <!-- Front -->
+            <div class="flip-front pink-overlay-bg flex flex-col justify-between h-full p-6">
+              <div class="flex flex-col h-full justify-between">
+                <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-purple-100 flex-shrink-0">
+                  <img src="assets/room1.jpg" alt="Timeless Facial" class="w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute top-3 left-3 bg-purple-900/90 text-white font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="sparkles" class="w-2.5 h-2.5"></i> Facial
+                  </div>
+                  <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white font-medium text-[9px] px-2 py-0.5 rounded">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 inline mr-1"></i> 75 Mins
+                  </div>
+                </div>
+                <div class="mt-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 class="font-serif text-2xl font-bold text-purple-950 leading-tight">Timeless Facial</h3>
+                    <p class="text-xs text-purple-700/80 font-bold uppercase tracking-wider mt-1">Anti-Aging &amp; Wrinkle Treatment</p>
+                  </div>
+                  <div class="mt-3 text-xs text-purple-900/80 space-y-1">
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Firms sagging areas and lifts</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Smooths deep lines &amp; expression wrinkles</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Plumps skin with youth-restoring hydration</div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-2 border-t border-purple-200/50 flex justify-between items-center text-[10px] text-purple-500 uppercase tracking-widest font-bold">
+                  <span>Tap to discover</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="flip-back flex flex-col justify-between h-full p-6 text-white" style="background: linear-gradient(135deg, #1A0A2E 0%, #4A0E6B 100%);">
+              <div class="flex flex-col h-full justify-between relative z-10">
+                <div class="flex justify-between items-center text-[9px] text-purple-300 uppercase tracking-widest font-bold">
+                  <span class="flex items-center gap-1"><i data-lucide="info" class="w-3 h-3"></i> Advanced Aesthetics</span>
+                  <span class="text-gold">Tap to Close ×</span>
+                </div>
+                <div class="mt-3">
+                  <div class="text-[10px] text-gold font-bold uppercase tracking-widest">Technology</div>
+                  <h4 class="font-serif text-2xl text-white font-bold leading-tight mt-0.5">Peptide Infusion</h4>
+                  <p class="text-xs text-purple-200 mt-2 leading-relaxed">
+                    Erase the years. This clinical ritual triggers collagen generation using advanced **Peptide Infusion** formulations and microcurrent lifting, fading expression wrinkles and loose skin.
+                  </p>
+                </div>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-purple-100/90 space-y-1">
+                  <div><strong>Best For:</strong> Deep wrinkles, laughter lines, skin laxity.</div>
+                  <div><strong>Downtime:</strong> Zero. Instant tightening effect.</div>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                  <a href="#appointments" class="btn-gold-sm justify-center w-full" onclick="event.stopPropagation();">
+                    Book a Free Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 — Uneven Texture ➔ BelaMD Skin Polishing -->
+        <div class="flip-wrapper reveal" id="card-texture" data-concern="texture" onclick="this.classList.toggle('flipped')" style="height:380px;">
+          <div class="flip-inner">
+            <!-- Front -->
+            <div class="flip-front pink-overlay-bg flex flex-col justify-between h-full p-6">
+              <div class="flex flex-col h-full justify-between">
+                <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-purple-100 flex-shrink-0">
+                  <img src="assets/room2.jpg" alt="BelaMD Skin Polishing" class="w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute top-3 left-3 bg-purple-900/90 text-white font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="sparkles" class="w-2.5 h-2.5"></i> Facial
+                  </div>
+                  <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white font-medium text-[9px] px-2 py-0.5 rounded">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 inline mr-1"></i> 45 Mins
+                  </div>
+                </div>
+                <div class="mt-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 class="font-serif text-2xl font-bold text-purple-950 leading-tight">BelaMD Polishing</h3>
+                    <p class="text-xs text-purple-700/80 font-bold uppercase tracking-wider mt-1">Uneven Texture &amp; Congestion</p>
+                  </div>
+                  <div class="mt-3 text-xs text-purple-900/80 space-y-1">
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Polishes away dry, flaky texture</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Deeply exfoliates and purges pores</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Delivers targeted clinical serum infusion</div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-2 border-t border-purple-200/50 flex justify-between items-center text-[10px] text-purple-500 uppercase tracking-widest font-bold">
+                  <span>Tap to discover</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="flip-back flex flex-col justify-between h-full p-6 text-white" style="background: linear-gradient(135deg, #1A0A2E 0%, #4A0E6B 100%);">
+              <div class="flex flex-col h-full justify-between relative z-10">
+                <div class="flex justify-between items-center text-[9px] text-purple-300 uppercase tracking-widest font-bold">
+                  <span class="flex items-center gap-1"><i data-lucide="info" class="w-3 h-3"></i> Advanced Aesthetics</span>
+                  <span class="text-gold">Tap to Close ×</span>
+                </div>
+                <div class="mt-3">
+                  <div class="text-[10px] text-gold font-bold uppercase tracking-widest">Technology</div>
+                  <h4 class="font-serif text-2xl text-white font-bold leading-tight mt-0.5">BelaMD Skin Care</h4>
+                  <p class="text-xs text-purple-200 mt-2 leading-relaxed">
+                    Reveal glowing silk. Using state-of-the-art **BelaMD** diamond-tip microdermabrasion, this system extracts impurities, infuses antioxidants, and smooths uneven skin surfaces.
+                  </p>
+                </div>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-purple-100/90 space-y-1">
+                  <div><strong>Best For:</strong> Dullness, rough texture, blackheads.</div>
+                  <div><strong>Downtime:</strong> Zero. Skin glows instantly.</div>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                  <a href="#appointments" class="btn-gold-sm justify-center w-full" onclick="event.stopPropagation();">
+                    Book a Free Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 — Active Acne & Pores ➔ Jessner Chemical Peel -->
+        <div class="flip-wrapper reveal" id="card-acne" data-concern="acne" onclick="this.classList.toggle('flipped')" style="height:380px;">
+          <div class="flip-inner">
+            <!-- Front -->
+            <div class="flip-front pink-overlay-bg flex flex-col justify-between h-full p-6">
+              <div class="flex flex-col h-full justify-between">
+                <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-purple-100 flex-shrink-0">
+                  <img src="assets/room3.jpg" alt="Refining Jessner Peel" class="w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute top-3 left-3 bg-purple-900/90 text-white font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="sparkles" class="w-2.5 h-2.5"></i> Facial
+                  </div>
+                  <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white font-medium text-[9px] px-2 py-0.5 rounded">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 inline mr-1"></i> 30 Mins
+                  </div>
+                </div>
+                <div class="mt-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 class="font-serif text-2xl font-bold text-purple-950 leading-tight">Jessner Chemical Peel</h3>
+                    <p class="text-xs text-purple-700/80 font-bold uppercase tracking-wider mt-1">Active Acne &amp; Clogged Pores</p>
+                  </div>
+                  <div class="mt-3 text-xs text-purple-900/80 space-y-1">
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Calms active breakouts quickly</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Clears congested pores and blackheads</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Regulates overactive sebum production</div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-2 border-t border-purple-200/50 flex justify-between items-center text-[10px] text-purple-500 uppercase tracking-widest font-bold">
+                  <span>Tap to discover</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="flip-back flex flex-col justify-between h-full p-6 text-white" style="background: linear-gradient(135deg, #1A0A2E 0%, #4A0E6B 100%);">
+              <div class="flex flex-col h-full justify-between relative z-10">
+                <div class="flex justify-between items-center text-[9px] text-purple-300 uppercase tracking-widest font-bold">
+                  <span class="flex items-center gap-1"><i data-lucide="info" class="w-3 h-3"></i> Advanced Aesthetics</span>
+                  <span class="text-gold">Tap to Close ×</span>
+                </div>
+                <div class="mt-3">
+                  <div class="text-[10px] text-gold font-bold uppercase tracking-widest">Technology</div>
+                  <h4 class="font-serif text-2xl text-white font-bold leading-tight mt-0.5">Jessner Refining Peel</h4>
+                  <p class="text-xs text-purple-200 mt-2 leading-relaxed">
+                    Reboot your skin. Our clinical **Jessner Chemical Peel** uses a powerful acid blend to penetrate deep into pores, destroying acne-causing bacteria and refining skin texture.
+                  </p>
+                </div>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-purple-100/90 space-y-1">
+                  <div><strong>Best For:</strong> Active cystic acne, oily skin, large pores.</div>
+                  <div><strong>Downtime:</strong> 3-5 days of light, superficial peeling.</div>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                  <a href="#appointments" class="btn-gold-sm justify-center w-full" onclick="event.stopPropagation();">
+                    Book a Free Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 — Dullness & Lack of Glow ➔ Detox & Glow -->
+        <div class="flip-wrapper reveal" id="card-dullness" data-concern="dullness" onclick="this.classList.toggle('flipped')" style="height:380px;">
+          <div class="flip-inner">
+            <!-- Front -->
+            <div class="flip-front pink-overlay-bg flex flex-col justify-between h-full p-6">
+              <div class="flex flex-col h-full justify-between">
+                <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-purple-100 flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=500&q=80" alt="Detox & Glow" class="w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute top-3 left-3 bg-purple-900/90 text-white font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="heart" class="w-2.5 h-2.5"></i> Body
+                  </div>
+                  <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white font-medium text-[9px] px-2 py-0.5 rounded">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 inline mr-1"></i> 60 Mins
+                  </div>
+                </div>
+                <div class="mt-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 class="font-serif text-2xl font-bold text-purple-950 leading-tight">Detox &amp; Glow Ritual</h3>
+                    <p class="text-xs text-purple-700/80 font-bold uppercase tracking-wider mt-1">Dull Skin &amp; Toxins</p>
+                  </div>
+                  <div class="mt-3 text-xs text-purple-900/80 space-y-1">
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Sweeps away full-body dullness</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Exfoliates with organic salts</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Deeply nourishes with organic oils</div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-2 border-t border-purple-200/50 flex justify-between items-center text-[10px] text-purple-500 uppercase tracking-widest font-bold">
+                  <span>Tap to discover</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="flip-back flex flex-col justify-between h-full p-6 text-white" style="background: linear-gradient(135deg, #1A0A2E 0%, #4A0E6B 100%);">
+              <div class="flex flex-col h-full justify-between relative z-10">
+                <div class="flex justify-between items-center text-[9px] text-purple-300 uppercase tracking-widest font-bold">
+                  <span class="flex items-center gap-1"><i data-lucide="info" class="w-3 h-3"></i> Advanced Aesthetics</span>
+                  <span class="text-gold">Tap to Close ×</span>
+                </div>
+                <div class="mt-3">
+                  <div class="text-[10px] text-gold font-bold uppercase tracking-widest">Technology</div>
+                  <h4 class="font-serif text-2xl text-white font-bold leading-tight mt-0.5">Nourishing Mud Therapy</h4>
+                  <p class="text-xs text-purple-200 mt-2 leading-relaxed">
+                    Full-body glow. Our **Nourishing Mud &amp; Scrub** ritual utilizes active minerals to draw out cellular toxins, while high-potency exfoliation smooths the skin to a silky radiance.
+                  </p>
+                </div>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-purple-100/90 space-y-1">
+                  <div><strong>Best For:</strong> Dullness, rough skin, cellular sluggishness.</div>
+                  <div><strong>Downtime:</strong> Zero. Leave with glowing, silky skin.</div>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                  <a href="#appointments" class="btn-gold-sm justify-center w-full" onclick="event.stopPropagation();">
+                    Book a Free Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 — Sun Damage & Age Spots ➔ Vivier Radiance Peel -->
+        <div class="flip-wrapper reveal" id="card-sun-damage" data-concern="sun-damage" onclick="this.classList.toggle('flipped')" style="height:380px;">
+          <div class="flip-inner">
+            <!-- Front -->
+            <div class="flip-front pink-overlay-bg flex flex-col justify-between h-full p-6">
+              <div class="flex flex-col h-full justify-between">
+                <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-purple-100 flex-shrink-0">
+                  <img src="assets/room1.jpg" alt="Vivier Radiance Peel" class="w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute top-3 left-3 bg-purple-900/90 text-white font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="sparkles" class="w-2.5 h-2.5"></i> Facial
+                  </div>
+                  <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white font-medium text-[9px] px-2 py-0.5 rounded">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 inline mr-1"></i> 30 Mins
+                  </div>
+                </div>
+                <div class="mt-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 class="font-serif text-2xl font-bold text-purple-950 leading-tight">Vivier Radiance Peel</h3>
+                    <p class="text-xs text-purple-700/80 font-bold uppercase tracking-wider mt-1">Sun Damage &amp; Dark Spots</p>
+                  </div>
+                  <div class="mt-3 text-xs text-purple-900/80 space-y-1">
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Fades dark patches &amp; sun freckles</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Repairs oxidative UV skin damage</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Energizes cell turnover for brightness</div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-2 border-t border-purple-200/50 flex justify-between items-center text-[10px] text-purple-500 uppercase tracking-widest font-bold">
+                  <span>Tap to discover</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="flip-back flex flex-col justify-between h-full p-6 text-white" style="background: linear-gradient(135deg, #1A0A2E 0%, #4A0E6B 100%);">
+              <div class="flex flex-col h-full justify-between relative z-10">
+                <div class="flex justify-between items-center text-[9px] text-purple-300 uppercase tracking-widest font-bold">
+                  <span class="flex items-center gap-1"><i data-lucide="info" class="w-3 h-3"></i> Advanced Aesthetics</span>
+                  <span class="text-gold">Tap to Close ×</span>
+                </div>
+                <div class="mt-3">
+                  <div class="text-[10px] text-gold font-bold uppercase tracking-widest">Technology</div>
+                  <h4 class="font-serif text-2xl text-white font-bold leading-tight mt-0.5">Vivier Skin Care</h4>
+                  <p class="text-xs text-purple-200 mt-2 leading-relaxed">
+                    Award-winning brightness. Utilizing premium **Vivier** medical formulations enriched with stabilized Vitamin C, this chemical peel removes hyperpigmented layers to fade sun spots.
+                  </p>
+                </div>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-purple-100/90 space-y-1">
+                  <div><strong>Best For:</strong> UV-induced sun spots, dark patches, aging skin.</div>
+                  <div><strong>Downtime:</strong> Zero. Perfect "lunchtime" treatment.</div>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                  <a href="#appointments" class="btn-gold-sm justify-center w-full" onclick="event.stopPropagation();">
+                    Book a Free Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 — Dehydrated Skin ➔ Refresh Hydration Facial -->
+        <div class="flip-wrapper reveal" id="card-dehydrated" data-concern="dehydrated" onclick="this.classList.toggle('flipped')" style="height:380px;">
+          <div class="flip-inner">
+            <!-- Front -->
+            <div class="flip-front pink-overlay-bg flex flex-col justify-between h-full p-6">
+              <div class="flex flex-col h-full justify-between">
+                <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-purple-100 flex-shrink-0">
+                  <img src="assets/room1.jpg" alt="Refresh Hydration Facial" class="w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute top-3 left-3 bg-purple-900/90 text-white font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="sparkles" class="w-2.5 h-2.5"></i> Facial
+                  </div>
+                  <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white font-medium text-[9px] px-2 py-0.5 rounded">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 inline mr-1"></i> 45 Mins
+                  </div>
+                </div>
+                <div class="mt-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 class="font-serif text-2xl font-bold text-purple-950 leading-tight">Refresh Facial</h3>
+                    <p class="text-xs text-purple-700/80 font-bold uppercase tracking-wider mt-1">Dry &amp; Tight Feeling Skin</p>
+                  </div>
+                  <div class="mt-3 text-xs text-purple-900/80 space-y-1">
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Floods skin with deep cellular water</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Repairs compromised moisture barriers</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Softens fine dehydration wrinkles</div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-2 border-t border-purple-200/50 flex justify-between items-center text-[10px] text-purple-500 uppercase tracking-widest font-bold">
+                  <span>Tap to discover</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="flip-back flex flex-col justify-between h-full p-6 text-white" style="background: linear-gradient(135deg, #1A0A2E 0%, #4A0E6B 100%);">
+              <div class="flex flex-col h-full justify-between relative z-10">
+                <div class="flex justify-between items-center text-[9px] text-purple-300 uppercase tracking-widest font-bold">
+                  <span class="flex items-center gap-1"><i data-lucide="info" class="w-3 h-3"></i> Advanced Aesthetics</span>
+                  <span class="text-gold">Tap to Close ×</span>
+                </div>
+                <div class="mt-3">
+                  <div class="text-[10px] text-gold font-bold uppercase tracking-widest">Technology</div>
+                  <h4 class="font-serif text-2xl text-white font-bold leading-tight mt-0.5">Hydration Lock</h4>
+                  <p class="text-xs text-purple-200 mt-2 leading-relaxed">
+                    Drench dry skin. Our advanced clinical **Hydration Lock** facial uses ultra-low molecular weight hyaluronic acid to penetrate deeply and bind water to skin cells for immediate dewiness.
+                  </p>
+                </div>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-purple-100/90 space-y-1">
+                  <div><strong>Best For:</strong> Dehydrated, flaky, tight skin.</div>
+                  <div><strong>Downtime:</strong> Zero. Skin is plump and hydrated instantly.</div>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                  <a href="#appointments" class="btn-gold-sm justify-center w-full" onclick="event.stopPropagation();">
+                    Book a Free Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 — Unwanted Hair ➔ Laser Hair Removal -->
+        <div class="flip-wrapper reveal" id="card-hair" data-concern="hair" onclick="this.classList.toggle('flipped')" style="height:380px;">
+          <div class="flip-inner">
+            <!-- Front -->
+            <div class="flip-front pink-overlay-bg flex flex-col justify-between h-full p-6">
+              <div class="flex flex-col h-full justify-between">
+                <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-purple-100 flex-shrink-0">
+                  <img src="assets/room4.jpg" alt="Laser Hair Removal" class="w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute top-3 left-3 bg-purple-900/90 text-white font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="zap" class="w-2.5 h-2.5"></i> Laser
+                  </div>
+                  <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white font-medium text-[9px] px-2 py-0.5 rounded">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 inline mr-1"></i> 30 Mins
+                  </div>
+                </div>
+                <div class="mt-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 class="font-serif text-2xl font-bold text-purple-950 leading-tight">Laser Hair Removal</h3>
+                    <p class="text-xs text-purple-700/80 font-bold uppercase tracking-wider mt-1">Permanent Hair Reduction</p>
+                  </div>
+                  <div class="mt-3 text-xs text-purple-900/80 space-y-1">
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Safely targets roots in hair follicles</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Provides lasting, flawless smoothness</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Virtually painless with active cooling</div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-2 border-t border-purple-200/50 flex justify-between items-center text-[10px] text-purple-500 uppercase tracking-widest font-bold">
+                  <span>Tap to discover</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="flip-back flex flex-col justify-between h-full p-6 text-white" style="background: linear-gradient(135deg, #1A0A2E 0%, #4A0E6B 100%);">
+              <div class="flex flex-col h-full justify-between relative z-10">
+                <div class="flex justify-between items-center text-[9px] text-purple-300 uppercase tracking-widest font-bold">
+                  <span class="flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3"></i> Advanced Laser</span>
+                  <span class="text-gold">Tap to Close ×</span>
+                </div>
+                <div class="mt-3">
+                  <div class="text-[10px] text-gold font-bold uppercase tracking-widest">Technology</div>
+                  <h4 class="font-serif text-2xl text-white font-bold leading-tight mt-0.5">Diode Laser</h4>
+                  <p class="text-xs text-purple-200 mt-2 leading-relaxed">
+                    Frictionless smoothness. Utilizing state-of-the-art **Diode Laser** systems equipped with active chilled-tip cooling, this laser target pigments to permanently disable hair growth.
+                  </p>
+                </div>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-purple-100/90 space-y-1">
+                  <div><strong>Best For:</strong> Permanent hair reduction, ingrown hair relief.</div>
+                  <div><strong>Downtime:</strong> Zero downtime. Mild sunburn feeling for 1 hour.</div>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                  <a href="#appointments" class="btn-gold-sm justify-center w-full" onclick="event.stopPropagation();">
+                    Book a Free Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 — Lash & Brow Definition ➔ Lash & Brow Sculpting -->
+        <div class="flip-wrapper reveal" id="card-lash-brow" data-concern="lash-brow" onclick="this.classList.toggle('flipped')" style="height:380px;">
+          <div class="flip-inner">
+            <!-- Front -->
+            <div class="flip-front pink-overlay-bg flex flex-col justify-between h-full p-6">
+              <div class="flex flex-col h-full justify-between">
+                <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-purple-100 flex-shrink-0">
+                  <img src="assets/room3.jpg" alt="Lash &amp; Brow Sculpting" class="w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute top-3 left-3 bg-purple-900/90 text-white font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="sparkles" class="w-2.5 h-2.5"></i> Facial
+                  </div>
+                  <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white font-medium text-[9px] px-2 py-0.5 rounded">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 inline mr-1"></i> 60 Mins
+                  </div>
+                </div>
+                <div class="mt-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 class="font-serif text-2xl font-bold text-purple-950 leading-tight">Lash &amp; Brow Sculpting</h3>
+                    <p class="text-xs text-purple-700/80 font-bold uppercase tracking-wider mt-1">Lash &amp; Brow Definition</p>
+                  </div>
+                  <div class="mt-3 text-xs text-purple-900/80 space-y-1">
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Perfectly defines and shapes brows</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Premium lifting to curl natural lashes</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Adds deep depth with precision tinting</div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-2 border-t border-purple-200/50 flex justify-between items-center text-[10px] text-purple-500 uppercase tracking-widest font-bold">
+                  <span>Tap to discover</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="flip-back flex flex-col justify-between h-full p-6 text-white" style="background: linear-gradient(135deg, #1A0A2E 0%, #4A0E6B 100%);">
+              <div class="flex flex-col h-full justify-between relative z-10">
+                <div class="flex justify-between items-center text-[9px] text-purple-300 uppercase tracking-widest font-bold">
+                  <span class="flex items-center gap-1"><i data-lucide="info" class="w-3 h-3"></i> Advanced Aesthetics</span>
+                  <span class="text-gold">Tap to Close ×</span>
+                </div>
+                <div class="mt-3">
+                  <div class="text-[10px] text-gold font-bold uppercase tracking-widest">Technology</div>
+                  <h4 class="font-serif text-2xl text-white font-bold leading-tight mt-0.5">Precision Lifting</h4>
+                  <p class="text-xs text-purple-200 mt-2 leading-relaxed">
+                    Elegance defined. Using safe **Precision Lifting** solutions and pigments, this cosmetic treatment shapes, curls, and tints lashes and brows to illuminate your natural facial structure.
+                  </p>
+                </div>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-purple-100/90 space-y-1">
+                  <div><strong>Best For:</strong> Sparse brows, straight lashes, facial definition.</div>
+                  <div><strong>Downtime:</strong> Keep dry for first 24 hours.</div>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                  <a href="#appointments" class="btn-gold-sm justify-center w-full" onclick="event.stopPropagation();">
+                    Book a Free Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12 — Muscle Tension ➔ Deep Relaxation Massage -->
+        <div class="flip-wrapper reveal" id="card-tension" data-concern="tension" onclick="this.classList.toggle('flipped')" style="height:380px;">
+          <div class="flip-inner">
+            <!-- Front -->
+            <div class="flip-front pink-overlay-bg flex flex-col justify-between h-full p-6">
+              <div class="flex flex-col h-full justify-between">
+                <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-purple-100 flex-shrink-0">
+                  <img src="assets/room1.jpg" alt="Deep Relaxation Massage" class="w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute top-3 left-3 bg-purple-900/90 text-white font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="heart" class="w-2.5 h-2.5"></i> Body
+                  </div>
+                  <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white font-medium text-[9px] px-2 py-0.5 rounded">
+                    <i data-lucide="clock" class="w-2.5 h-2.5 inline mr-1"></i> 60 Mins
+                  </div>
+                </div>
+                <div class="mt-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 class="font-serif text-2xl font-bold text-purple-950 leading-tight">Relaxation Massage</h3>
+                    <p class="text-xs text-purple-700/80 font-bold uppercase tracking-wider mt-1">Muscle Tension &amp; Chronic Stress</p>
+                  </div>
+                  <div class="mt-3 text-xs text-purple-900/80 space-y-1">
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Relieves deep and persistent muscle knots</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Boosts full-body circulation and wellness</div>
+                    <div class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-600"></i> Dramatically lowers chronic stress levels</div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-2 border-t border-purple-200/50 flex justify-between items-center text-[10px] text-purple-500 uppercase tracking-widest font-bold">
+                  <span>Tap to discover</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="flip-back flex flex-col justify-between h-full p-6 text-white" style="background: linear-gradient(135deg, #1A0A2E 0%, #4A0E6B 100%);">
+              <div class="flex flex-col h-full justify-between relative z-10">
+                <div class="flex justify-between items-center text-[9px] text-purple-300 uppercase tracking-widest font-bold">
+                  <span class="flex items-center gap-1"><i data-lucide="info" class="w-3 h-3"></i> Advanced Aesthetics</span>
+                  <span class="text-gold">Tap to Close ×</span>
+                </div>
+                <div class="mt-3">
+                  <div class="text-[10px] text-gold font-bold uppercase tracking-widest">Technology</div>
+                  <h4 class="font-serif text-2xl text-white font-bold leading-tight mt-0.5">Swedish &amp; Tissue Therapy</h4>
+                  <p class="text-xs text-purple-200 mt-2 leading-relaxed">
+                    Absolute physical release. Combining classic **Swedish &amp; Deep Tissue** strokes with targeted pressure-point therapies, our specialists dissolve stiffness and restore skeletal alignment.
+                  </p>
+                </div>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-purple-100/90 space-y-1">
+                  <div class="text-center font-bold text-white uppercase tracking-widest text-[10px]">Restorative Wellness</div>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                  <a href="#appointments" class="btn-gold-sm justify-center w-full" onclick="event.stopPropagation();">
+                    Book a Free Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /treatments grid -->
+
+    </div>
+  </section>
 
       <div class="mt-14 text-center">
         <a href="#appointments" style="font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--purple-primary);border-bottom:1px solid var(--purple-primary);padding-bottom:3px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:opacity .2s;" class="hover:opacity-60">
@@ -1186,11 +1691,12 @@
       <div class="flex flex-col md:flex-row justify-between items-end mb-10">
         <div>
           <span class="section-eyebrow">Inside Eclipse Spa</span>
-          <h2 style="font-size:clamp(2rem,4.5vw,3rem);font-weight:400;color:#1A0A2E;margin-top:8px;">
+          <h2 style="font-size:clamp(2rem,4.5vw,3rem);font-weight:400;color:#1A0A2E;margin-top:8px;margin-bottom:24px;text-align:center;">
             Our Serene<br><em style="font-style:italic;font-weight:300;">Sanctuary</em>
           </h2>
         </div>
-        <div class="flex items-center gap-3 mt-6 md:mt-0">
+        <p style="font-family:'Lato',sans-serif;font-size:14px;color:#1A0A2E;text-align:center;margin-top:12px;">Samantha <em>Laser Specialist</em> – Certified in IPL and advanced laser treatments with a precision-focused approach to skin clarity.</p>
+<div class="flex items-center gap-3 mt-6 md:mt-0">
           <button id="gallery-prev" aria-label="Previous"
                   style="width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(155,89,182,.4);background:#fff;color:var(--purple-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s ease;"
                   onmouseenter="this.style.background='var(--purple-primary)';this.style.color='#fff';"
@@ -1209,6 +1715,16 @@
       <!-- Track wrapper -->
       <div style="overflow:hidden;border-radius:4px;" id="gallery-viewport">
         <div class="gallery-track" id="gallery-track">
+          <div class="gallery-slide">
+            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
+              <img src="assets/room4.jpg" alt="Eclipse Spa Laser Suite" class="gallery-img" loading="lazy" />
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
+              <img src="assets/image_9.jpg" alt="Eclipse Spa Interior" class="gallery-img" loading="lazy" />
+            </div>
+          </div>
           <!-- Slide 1 — treatment room -->
           <div class="gallery-slide">
             <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
@@ -1231,18 +1747,6 @@
           <div class="gallery-slide">
             <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
               <img src="assets/room4.jpg" alt="Eclipse Spa Laser Suite" class="gallery-img" loading="lazy" />
-            </div>
-          </div>
-          <!-- Slide 5 -->
-          <div class="gallery-slide">
-            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
-              <img src="assets/image_9.jpg" alt="Eclipse Spa Interior" class="gallery-img" loading="lazy" />
-            </div>
-          </div>
-          <!-- Slide 6 -->
-          <div class="gallery-slide">
-            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
-              <img src="assets/image_11.jpg" alt="Eclipse Spa" class="gallery-img" loading="lazy" />
             </div>
           </div>
           <!-- Slide 7 -->
@@ -1273,55 +1777,12 @@
   </section>
 
   <!-- ══ TEAM SECTION ══════════════════════════════ -->
-  <section id="team" style="background:#fff;padding:7rem 0;">
+  <section id="team" style="display:none;">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-14">
-        <div>
-          <span class="section-eyebrow">The Experts</span>
-          <h2 style="font-size:clamp(2rem,4.5vw,3rem);font-weight:400;color:#1A0A2E;margin-top:8px;">
-            Meet Your Spa<br><em style="font-style:italic;font-weight:300;">Specialists</em>
-          </h2>
-        </div>
-        <p style="font-family:'Lato',sans-serif;font-size:14px;font-weight:300;color:#8A6AA0;max-width:300px;line-height:1.7;margin-top:12px;">
-          Our certified team is dedicated to your transformation and total wellbeing.
-        </p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Sophia -->
-        <div class="team-card reveal" style="padding:0;overflow:hidden;">
-          <div style="position:relative;height:260px;overflow:hidden;background:var(--purple-faint);">
-            <video autoplay muted loop playsinline
-                   style="width:100%;height:100%;object-fit:cover;display:block;">
-              <source src="assets/sophia.mp4" type="video/mp4" />
-            </video>
-            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,46,0.45) 0%,transparent 55%);pointer-events:none;"></div>
-          </div>
-          <div style="padding:24px 28px 30px;text-align:center;">
-            <h3 style="font-size:26px;font-weight:500;color:#1A0A2E;">Sophia</h3>
-            <p style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--purple-accent);margin-top:6px;">Lead Esthetician</p>
-            <div style="width:30px;height:1.5px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:1px;margin:14px auto;"></div>
-            <p style="font-family:'Lato',sans-serif;font-size:14px;font-weight:300;color:#7A5A90;line-height:1.7;">12 years of expertise in advanced skin therapy, custom facials, and holistic skin health protocols.</p>
-          </div>
-        </div>
-        <!-- Isabelle -->
-        <div class="team-card reveal" style="padding:0;overflow:hidden;">
-          <div style="position:relative;height:260px;overflow:hidden;background:var(--purple-faint);">
-            <video autoplay muted loop playsinline
-                   style="width:100%;height:100%;object-fit:cover;display:block;">
-              <source src="assets/isabelle.mp4" type="video/mp4" />
-            </video>
-            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,46,0.45) 0%,transparent 55%);pointer-events:none;"></div>
-          </div>
-          <div style="padding:24px 28px 30px;text-align:center;">
-            <h3 style="font-size:26px;font-weight:500;color:#1A0A2E;">Isabelle</h3>
-            <p style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--purple-accent);margin-top:6px;">Massage Therapist</p>
-            <div style="width:30px;height:1.5px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:1px;margin:14px auto;"></div>
-            <p style="font-family:'Lato',sans-serif;font-size:14px;font-weight:300;color:#7A5A90;line-height:1.7;">Specializing in therapeutic and relaxation massage — Swedish, deep tissue, and hot stone techniques.</p>
-          </div>
-        </div>
-        <!-- Samantha -->
-        <div class="team-card reveal" style="padding:0;overflow:hidden;">
-          <div style="position:relative;height:260px;overflow:hidden;background:var(--purple-faint);">
+      <div class="grid lg:grid-cols-3 gap-10">
+        <!-- Team Member 1 -->
+        <div style="border-radius:30px;overflow:hidden;background:#fff;box-shadow:0 10px 40px rgba(74,14,107,0.08);">
+          <div style="height:320px;position:relative;">
             <video autoplay muted loop playsinline
                    style="width:100%;height:100%;object-fit:cover;display:block;">
               <source src="assets/samantha.mp4" type="video/mp4" />
@@ -1346,15 +1807,15 @@
         <div>
           <span class="section-eyebrow">Find Us</span>
           <h2 style="font-size:clamp(2rem,4.5vw,3rem);font-weight:400;color:#1A0A2E;margin-top:8px;margin-bottom:36px;">
-            Our Toronto<br><em style="font-style:italic;font-weight:300;">Sanctuary</em>
+            Our Niagara Falls<br><em style="font-style:italic;font-weight:300;">Sanctuary</em>
           </h2>
           <div class="space-y-7">
             <div class="info-row">
               <div class="info-icon"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
               <div>
                 <p style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-accent);margin-bottom:5px;">Address</p>
-                <p style="font-family:'Lato',sans-serif;font-size:14px;color:#4A3060;line-height:1.6;">123 Serenity Lane<br>Toronto, ON M5V 3A8</p>
-                <a href="https://maps.google.com/?q=123+Serenity+Lane,+Toronto,+ON" target="_blank"
+                <p style="font-family:'Lato',sans-serif;font-size:14px;color:#4A3060;line-height:1.6;">4383 Portage Rd, Unit B100<br>Niagara Falls, ON L2E 6A6</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=4383+Portage+Rd+Unit+B100+Niagara+Falls+ON+L2E+6A6" target="_blank"
                    style="font-family:'Lato',sans-serif;font-size:12px;color:var(--purple-primary);text-decoration:underline;margin-top:4px;display:inline-block;font-weight:600;">Get Directions →</a>
               </div>
             </div>
@@ -1373,8 +1834,8 @@
               <div class="info-icon"><i data-lucide="phone" class="w-5 h-5"></i></div>
               <div>
                 <p style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-accent);margin-bottom:5px;">Contact</p>
-                <a href="tel:+14165550199" style="font-family:'Lato',sans-serif;font-size:14px;color:#4A3060;display:block;text-decoration:none;" class="hover:text-purple-700">(416) 555-0199</a>
-                <a href="mailto:hello@eclipsespa.ca" style="font-family:'Lato',sans-serif;font-size:14px;color:#4A3060;display:block;text-decoration:none;" class="hover:text-purple-700">hello@eclipsespa.ca</a>
+                <a href="tel:+12892777140" style="font-family:'Lato',sans-serif;font-size:14px;color:#4A3060;display:block;text-decoration:none;" class="hover:text-purple-700">(289) 277-7140</a>
+                <a href="mailto:eclipsespa.ca@gmail.com" style="font-family:'Lato',sans-serif;font-size:14px;color:#4A3060;display:block;text-decoration:none;" class="hover:text-purple-700">eclipsespa.ca@gmail.com</a>
               </div>
             </div>
           </div>
@@ -1429,10 +1890,10 @@
           <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#1A0A2E;margin-bottom:8px;">Thank You!</h3>
           <p style="font-family:'Lato',sans-serif;font-size:14px;color:#6B4F80;line-height:1.6;">Your request is received. Our team will contact you within 24 hours to confirm your visit.</p>
         </div>
-        <form id="appointment-form" class="space-y-6" action="mailto:hello@eclipsespa.ca" method="POST" enctype="text/plain">
+        <form id="appointment-form" class="space-y-6" action="mailto:eclipsespa.ca@gmail.com" method="POST" enctype="text/plain">
           <div class="grid md:grid-cols-2 gap-5">
             <div><label class="form-label">Full Name</label><input type="text" name="name" required placeholder="Your full name" class="form-input" /></div>
-            <div><label class="form-label">Phone Number</label><input type="tel" name="phone" required placeholder="(416) 000-0000" class="form-input" /></div>
+            <div><label class="form-label">Phone Number</label><input type="tel" name="phone" required placeholder="(289) 000-0000" class="form-input" /></div>
           </div>
           <div><label class="form-label">Email Address</label><input type="email" name="email" required placeholder="you@example.com" class="form-input" /></div>
           <div class="grid md:grid-cols-2 gap-5">
@@ -1474,8 +1935,8 @@
         <details class="faq-item"><summary>Do you accept insurance or HSA payments?<div class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></div></summary><div class="faq-body">Eclipse Spa operates on a private-pay basis. We do not direct-bill insurance for cosmetic or wellness treatments. However, many massage therapy services may be eligible for reimbursement through your health benefits. We accept all major credit cards, debit, and e-transfer.</div></details>
         <details class="faq-item"><summary>What is your cancellation policy?<div class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></div></summary><div class="faq-body">We kindly ask for 24 hours notice for any cancellations or rescheduling. Late cancellations or no-shows may be subject to a service fee. Please contact us as soon as possible if you need to reschedule.</div></details>
         <details class="faq-item"><summary>Is there parking at the spa?<div class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></div></summary><div class="faq-body">Yes! Eclipse Spa offers complimentary parking for all guests directly outside our location. We are also accessible via TTC — please ask our team for the nearest transit options.</div></details>
-        <details class="faq-item"><summary>What should I do to prepare for my appointment?<div class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></div></summary><div class="faq-body">We recommend arriving 10–15 minutes early to complete your intake form and settle in. For facial appointments, arrive with a clean face if possible. For massage, wear comfortable clothing. Our team will guide you through every step.</div></details>
-        <details class="faq-item"><summary>Do you offer gift cards or packages?<div class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></div></summary><div class="faq-body">Absolutely. Eclipse Spa gift cards are available in any denomination — the perfect gift for loved ones. We also offer curated treatment packages at special rates. Contact us at hello@eclipsespa.ca or ask our reception for current offerings.</div></details>
+        <details class="faq-item"><summary>What should I do to prepare for my appointment?<div class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></div></summary><div class="faq-body">We recommend arriving 10–15 minutes early to complete your intake form and settle in. For facial appointments, arrive with a clean face if possible. For massage, wear comfortable clothing.</div></details>
+        <details class="faq-item"><summary>Do you offer gift cards?<div class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></div></summary><div class="faq-body">Yes, we offer digital gift cards — the perfect gift for loved ones. We also offer curated treatment packages at special rates. Contact us at eclipsespa.ca@gmail.com or ask our reception for current offerings.</div></details>
       </div>
     </div>
   </section>
@@ -1490,25 +1951,25 @@
               <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--purple-accent),var(--purple-light));position:absolute;opacity:.8;"></div>
               <div style="width:24px;height:24px;border-radius:50%;background:var(--purple-deep);position:absolute;top:6px;left:10px;"></div>
             </div>
-            <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:#fff;letter-spacing:.03em;">Eclipse Spa</span>
+            <img src="file:///C:/Users/anmol/.gemini/antigravity/brain/5eae4cc5-8892-462b-8143-ee8ac5b2c12c/trust_badge_1779334746433.png" alt="Trust Badge" style="margin-top:8px;width:120px;height:auto;" />
           </div>
-          <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:300;line-height:1.8;max-width:300px;color:rgba(195,155,211,.65);">Toronto's premier destination for luxury spa treatments, holistic wellness, and radiant transformation.</p>
+<p style="font-family:'Lato',sans-serif;font-size:16px;font-weight:300;line-height:1.8;max-width:300px;color:#fff;">Niagara Falls' premier destination for luxury spa treatments, holistic wellness, and radiant transformation.</p>
           <div class="flex gap-3 pt-2">
-            <a href="#" class="social-icon" aria-label="Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a>
-            <a href="#" class="social-icon" aria-label="Facebook"><i data-lucide="facebook" class="w-4 h-4"></i></a>
-            <a href="#" class="social-icon" aria-label="TikTok"><i data-lucide="music-2" class="w-4 h-4"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram" style="color:#fff;"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook" style="color:#fff;"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+            <a href="#" class="social-icon" aria-label="TikTok" style="color:#fff;"><i data-lucide="music-2" class="w-4 h-4"></i></a>
           </div>
         </div>
         <div>
-          <h4 style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:20px;">Contact</h4>
+<h4 style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Contact</h4>
           <ul class="space-y-4" style="font-family:'Lato',sans-serif;font-size:13px;">
-            <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5" style="color:rgba(155,89,182,.6);flex-shrink:0;"></i><span style="line-height:1.6;color:rgba(195,155,211,.7);">123 Serenity Lane<br>Toronto, ON M5V 3A8</span></li>
-            <li class="flex items-center gap-3"><i data-lucide="phone" class="w-4 h-4" style="color:rgba(155,89,182,.6);"></i><a href="tel:+14165550199" class="footer-link" style="color:rgba(195,155,211,.7);">(416) 555-0199</a></li>
-            <li class="flex items-center gap-3"><i data-lucide="mail" class="w-4 h-4" style="color:rgba(155,89,182,.6);"></i><a href="mailto:hello@eclipsespa.ca" class="footer-link" style="color:rgba(195,155,211,.7);">hello@eclipsespa.ca</a></li>
+            <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5" style="color:rgba(155,89,182,.6);flex-shrink:0;"></i><span style="line-height:1.6;color:rgba(195,155,211,.7);">4383 Portage Rd, Unit B100<br>Niagara Falls, ON L2E 6A6</span></li>
+            <li class="flex items-center gap-3"><i data-lucide="phone" class="w-4 h-4" style="color:rgba(155,89,182,.6);"></i><a href="tel:+12892777140" class="footer-link" style="color:rgba(195,155,211,.7);">(289) 277-7140</a></li>
+            <li class="flex items-center gap-3"><i data-lucide="mail" class="w-4 h-4" style="color:rgba(155,89,182,.6);"></i></li>
           </ul>
         </div>
         <div>
-          <h4 style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:20px;">Quick Links</h4>
+<h4 style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Quick Links</h4>
           <ul class="space-y-2" style="font-family:'Lato',sans-serif;font-size:13px;color:rgba(195,155,211,.65);">
             <li><a href="#services"     class="footer-link" style="color:inherit;text-decoration:none;">Our Services</a></li>
             <li><a href="#gallery"      class="footer-link" style="color:inherit;text-decoration:none;">Gallery</a></li>
@@ -1519,7 +1980,7 @@
         </div>
       </div>
       <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style="font-family:'Lato',sans-serif;font-size:11px;color:rgba(195,155,211,.4);">
-        <p>© 2026 Eclipse Spa. All Rights Reserved. Toronto, Ontario, Canada.</p>
+        <p>© 2026 Eclipse Spa &amp; Laser Centre. All Rights Reserved. Niagara Falls, Ontario, Canada.</p>
         <div class="flex gap-6">
           <a href="#" class="footer-link" style="color:inherit;text-decoration:none;">Privacy Policy</a>
           <a href="#" class="footer-link" style="color:inherit;text-decoration:none;">Terms of Service</a>
@@ -1668,7 +2129,7 @@
       success.style.display = 'block';
       lucide.createIcons();
       setTimeout(() => {
-        window.location.href = 'mailto:hello@eclipsespa.ca'
+        window.location.href = 'mailto:eclipsespa.ca@gmail.com'
           + '?subject=' + encodeURIComponent('Appointment Request — '+name)
           + '&body=' + encodeURIComponent(body);
       }, 400);
