@@ -1,1 +1,25 @@
-.claude/
+# Claude Code local state — don't track
+.claude/*.json
+.claude/settings.json
+.claude/todos.json
+.claude/cache/
+
+# NOTE: .claude/commands/ is intentionally NOT ignored
+# Commands must be committed so they work after cloning
+
+# Odoo project secrets
+.env
+.tmp/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
