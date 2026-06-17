@@ -1,0 +1,1965 @@
+<t t-name="website.page_eclipse-niagara">
+  <t t-call="website.layout">
+    <t t-set="no_header" t-value="True"/>
+    <t t-set="no_footer" t-value="True"/>
+    <t t-set="pageName" t-value="'Eclipse Niagara'"/>
+    <div id="wrap" class="oe_structure">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Lato:wght@300;400;700;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com">//
+//</script>
+<script src="https://unpkg.com/lucide@latest">//
+//</script>
+
+<style>/**/
+
+    :root {
+      --purple-darkest: #0D0618;
+      --purple-deep:    #1A0A2E;
+      --purple-primary: #4A0E6B;
+      --purple-mid:     #6B2A8A;
+      --purple-accent:  #9B59B6;
+      --purple-light:   #C39BD3;
+      --purple-faint:   #E8D5F5;
+      --purple-whisper: #F8F0FF;
+      --gold:           #D4AF7A;
+      --gold-light:     #F0D9B5;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      font-size: 18px; /* Increased globally from 16px */
+      scroll-behavior: smooth;
+    }
+    @media (max-width: 768px) {
+      html { font-size: 16px; }
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--purple-whisper);
+      color: #2D1A3E;
+      font-size: 1.05rem; /* Increased body text readability */
+      line-height: 1.75;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    ::selection { background: var(--purple-primary); color: #fff; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--purple-whisper); }
+    ::-webkit-scrollbar-thumb { background: var(--purple-accent); border-radius: 3px; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* ══ LUXURY ACCENTS &amp; UTILITIES ═══════════════ */
+    .btn-gold {
+      background: linear-gradient(135deg, #E5C08A 0%, #D4AF7A 50%, #B89660 100%);
+      color: #1A0A2E !important;
+      border-radius: 9999px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(212,175,122,0.4), 0 2px 4px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      cursor: pointer;
+      text-decoration: none;
+      text-shadow: 0 0.5px 1px rgba(255,255,255,0.2);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212,175,122,0.6);
+      filter: brightness(1.05);
+    }
+
+    .btn-gold-sm {
+      background: linear-gradient(135deg, #E5C08A 0%, #D4AF7A 100%);
+      color: #1A0A2E !important;
+      border-radius: 9999px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 12px rgba(212,175,122,0.3);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-gold-sm:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(212,175,122,0.45);
+    }
+
+    /* Soft pink luxury card background with premium borders */
+    .pink-overlay-bg {
+      background: #ffffff !important;
+      border: 1px solid rgba(195,155,211,0.2) !important;
+      box-shadow: 0 4px 24px rgba(74,14,107,0.08) !important;
+    }
+
+    /* Concern pill styles */
+    .concern-pill {
+      background: transparent;
+      border: none;
+      border-left: 2px solid transparent;
+      color: #7A5A90;
+      border-radius: 0;
+      font-family: 'Lato', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.03em;
+      padding: 10px 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      text-align: left;
+    }
+    .concern-pill:hover {
+      background: var(--purple-faint);
+      color: var(--purple-primary);
+      border-left-color: rgba(74,14,107,0.3);
+    }
+    .concern-pill.active {
+      background: var(--purple-faint);
+      color: var(--purple-primary);
+      border-left-color: var(--purple-primary);
+      font-weight: 800;
+    }
+    .concern-pill svg, .concern-pill i {
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+    .concern-pill.active svg, .concern-pill.active i {
+      opacity: 1;
+    }
+    @media (max-width: 1023px) {
+      .concern-pill {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        border-radius: 9999px;
+        padding: 8px 16px;
+        width: auto;
+        background: #fff;
+        border: 1px solid rgba(195,155,211,0.35);
+        color: #5A3575;
+      }
+      .concern-pill.active {
+        background: var(--purple-primary);
+        color: #fff;
+        border-color: var(--purple-primary);
+      }
+    }
+
+    /* ══ HERO VIDEO ══════════════════════════════ */
+    .hero-wrap {
+      position: relative;
+      min-height: calc(100vh - 80px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    /* Gradient overlay for text readability */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to right, rgba(13,6,24,0.88) 0%, rgba(26,10,46,0.72) 45%, rgba(26,10,46,0.35) 100%),
+        linear-gradient(to top, rgba(13,6,24,0.6) 0%, transparent 40%);
+    }
+    /* Grain texture over video */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    /* Floating sparkles */
+    .sparkle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(212,175,122,0.7);
+      border-radius: 50%;
+      animation: twinkle var(--d, 4s) ease-in-out infinite;
+      z-index: 3;
+      pointer-events: none;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(1); }
+      50%       { opacity: 1; transform: scale(2); }
+    }
+
+    /* ══ FADE-UP ══════════════════════════════════ */
+    .fade-up {
+      animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) forwards;
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .delay-100 { animation-delay: 120ms; }
+    .delay-200 { animation-delay: 260ms; }
+    .delay-300 { animation-delay: 400ms; }
+    .delay-400 { animation-delay: 560ms; }
+
+    /* ══ BUTTONS ══════════════════════════════════ */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-mid) 100%);
+      color: #fff;
+      border-radius: 9999px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(74,14,107,0.45), 0 1px 4px rgba(0,0,0,0.2);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(74,14,107,0.6);
+    }
+    .btn-outline {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.38);
+      border-radius: 9999px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.65);
+      transform: translateY(-2px);
+    }
+
+    /* ══ GLASS BADGE ══════════════════════════════ */
+    .glass-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: rgba(255,255,255,0.09);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 9999px;
+      color: rgba(255,255,255,0.88);
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* ══ TRUST BAR ════════════════════════════════ */
+    .trust-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8A6AA0;
+    }
+
+    /* ══ GALLERY CAROUSEL ═════════════════════════ */
+    .gallery-track {
+      display: flex;
+      transition: transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+    }
+    .gallery-slide {
+      min-width: 33.3333%;
+      padding: 0 8px;
+      flex-shrink: 0;
+    }
+    /* Tablet: 2 slides */
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .gallery-slide { min-width: 50%; }
+    }
+    /* Mobile: 1 slide, full-bleed peek */
+    @media (max-width: 639px) {
+      .gallery-slide { min-width: 88%; }
+    }
+    .gallery-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    @media (max-width: 639px) {
+      .gallery-img { height: 320px; }
+    }
+    .gallery-img:hover { transform: scale(1.02); }
+    .gallery-nav-btn {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(155,89,182,.4);
+      background: #fff;
+      color: var(--purple-primary);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .25s ease, color .25s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .gallery-nav-btn:hover,
+    .gallery-nav-btn:active {
+      background: var(--purple-primary);
+      color: #fff;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(155,89,182,0.3);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+      /* Expand hit area to 44px without affecting visual size */
+      position: relative;
+    }
+    .carousel-dot::after {
+      content: '';
+      position: absolute;
+      inset: -18px;
+    }
+    .carousel-dot.active {
+      background: var(--purple-primary);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* ══ SERVICE CARDS WITH IMAGE ═════════════════ */
+    .service-card {
+      background: #fff;
+      border: 1px solid rgba(195,155,211,0.22);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 44px rgba(74,14,107,0.16), 0 4px 12px rgba(74,14,107,0.1);
+      border-color: rgba(155,89,182,0.4);
+    }
+    .service-img-wrap {
+      position: relative;
+      height: 160px;
+      overflow: hidden;
+      background: var(--purple-faint);
+    }
+    .service-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .service-card:hover .service-img { transform: scale(1.06); }
+    .service-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,10,46,0.55) 0%, transparent 55%);
+    }
+    .service-body {
+      padding: 20px 20px 22px;
+      position: relative;
+    }
+    .service-icon-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--purple-faint);
+      color: var(--purple-primary);
+      border-radius: 9999px;
+      padding: 4px 12px 4px 8px;
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .service-card:hover .service-icon-pill {
+      background: var(--purple-primary);
+      color: #fff;
+    }
+
+    /* ══ TEAM CARDS ═══════════════════════════════ */
+    .team-card {
+      background: #fff;
+      border: 1px solid rgba(195,155,211,0.2);
+      border-radius: 24px;
+      overflow: hidden;
+      text-align: center;
+      transition: all 0.35s ease;
+      box-shadow: 0 2px 12px rgba(74,14,107,0.06);
+    }
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 38px rgba(74,14,107,0.14);
+    }
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple-faint), var(--purple-light));
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 500;
+      color: var(--purple-primary);
+      border: 3px solid var(--purple-faint);
+      transition: all 0.3s ease;
+    }
+    .team-card:hover .avatar {
+      border-color: var(--purple-accent);
+      box-shadow: 0 0 0 6px rgba(155,89,182,0.1);
+    }
+
+    /* ══ FORM ════════════════════════════════════ */
+    .form-input {
+      width: 100%;
+      background: var(--purple-whisper);
+      border: 1.5px solid rgba(195,155,211,0.35);
+      border-radius: 14px;
+      padding: 13px 16px;
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      color: #2D1A3E;
+      transition: all 0.25s ease;
+      outline: none;
+    }
+    .form-input:focus {
+      border-color: var(--purple-accent);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(155,89,182,0.12);
+    }
+    .form-input::placeholder { color: #B8A0CC; }
+    .form-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7A5A90;
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    /* ══ FAQ ═════════════════════════════════════ */
+    details.faq-item {
+      background: #fff;
+      border: 1px solid rgba(195,155,211,0.25);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+    }
+    details.faq-item[open] {
+      box-shadow: 0 4px 20px rgba(74,14,107,0.1);
+      border-color: rgba(155,89,182,0.4);
+    }
+    details.faq-item summary {
+      padding: 20px 24px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      color: #2D1A3E;
+      font-size: 15px;
+      user-select: none;
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    .faq-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--purple-faint);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--purple-primary);
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    details.faq-item[open] .faq-icon {
+      background: var(--purple-primary);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+    .faq-body {
+      padding: 0 24px 20px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: #5A4070;
+    }
+
+    /* ══ SECTION HELPERS ═══════════════════════════ */
+    .section-eyebrow {
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--purple-accent);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .divider-ornament {
+      display: flex; align-items: center; gap: 16px; justify-content: center; margin: 0 auto;
+    }
+    .divider-ornament::before, .divider-ornament::after {
+      content: ''; flex: 1; max-width: 80px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--purple-light));
+    }
+    .divider-ornament::after { background: linear-gradient(90deg, var(--purple-light), transparent); }
+
+    /* ══ MAP PLACEHOLDER ══════════════════════════ */
+    .map-placeholder {
+      background: linear-gradient(135deg, var(--purple-faint) 0%, #EDD9FF 100%);
+      border-radius: 28px;
+      height: 420px;
+      position: relative;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .map-placeholder::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 40% 40%, rgba(155,89,182,0.15) 0%, transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(74,14,107,0.1) 0%, transparent 50%);
+    }
+    .map-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(155,89,182,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(155,89,182,0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* ══ INFO ROW ═════════════════════════════════ */
+    .info-row { display: flex; align-items: flex-start; gap: 16px; }
+    .info-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--purple-whisper);
+      border: 1px solid rgba(195,155,211,0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--purple-primary); flex-shrink: 0;
+    }
+
+    /* ══ SOCIAL ICON ══════════════════════════════ */
+    .social-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(195,155,211,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--purple-light);
+      transition: all 0.3s ease;
+    }
+    .social-icon:hover {
+      background: var(--purple-primary);
+      border-color: var(--purple-primary);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(74,14,107,0.4);
+    }
+
+    /* ══ FOOTER LINK ══════════════════════════════ */
+    .footer-link { transition: color 0.2s ease; }
+    .footer-link:hover { color: var(--purple-light); }
+
+    /* ══ MOBILE MENU ══════════════════════════════ */
+    .menu-hidden { display: none; }
+    .menu-visible { display: flex; }
+
+    /* ══ SCROLL INDICATOR ═════════════════════════ */
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateY(0); opacity: 0.6; }
+      50%       { transform: translateY(6px); opacity: 1; }
+    }
+    .scroll-indicator { animation: scrollBounce 2s ease-in-out infinite; }
+
+    /* ══ FLOATING CTA PULSE ═══════════════════════ */
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(74,14,107,0.5), 0 8px 24px rgba(74,14,107,0.4); }
+      50%       { box-shadow: 0 0 0 10px rgba(74,14,107,0), 0 8px 24px rgba(74,14,107,0.4); }
+    }
+    .floating-cta { animation: ctaPulse 3s ease-in-out infinite; }
+
+    /* ══ SCROLL REVEAL (JS-driven) ════════════════ */
+    .reveal { opacity: 0; transform: translateY(22px); }
+
+    /* success message */
+    #form-success { display: none; }
+
+    /* ══ FLIP CARDS ═══════════════════════════════ */
+    .flip-wrapper {
+      height: 440px;
+      perspective: 1200px;
+      cursor: pointer;
+      position: relative;
+    }
+    @media (max-width: 639px) { .flip-wrapper { height: 400px; } }
+
+    .flip-inner {
+      width: 100%; height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+      position: relative;
+    }
+    .flip-wrapper.flipped .flip-inner { transform: rotateY(180deg); }
+
+    .flip-front, .flip-back {
+      position: absolute; inset: 0;
+      border-radius: 20px; overflow: hidden;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .flip-front {
+      background: #fff;
+      border: 1px solid rgba(195,155,211,.22);
+      box-shadow: 0 4px 24px rgba(74,14,107,0.08);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    .flip-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(145deg, #1A0A2E 0%, #3A0B55 45%, #5C1A7A 100%);
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 18px 16px 16px;
+    }
+    .flip-back::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: rgba(155,89,182,.15);
+      pointer-events: none;
+    }
+
+    .flip-img-wrap {
+      height: 185px; position: relative;
+      overflow: hidden; background: var(--purple-faint); flex-shrink: 0;
+    }
+    .flip-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .55s ease;
+    }
+    .flip-wrapper:hover:not(.flipped) .flip-img-wrap img { transform: scale(1.05); }
+    .flip-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,10,46,.5) 0%, transparent 55%);
+    }
+    .flip-tap-front {
+      position: absolute; bottom: 8px; right: 10px;
+      font-family: 'Lato', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6);
+    }
+    .flip-body { padding: 14px 15px 16px; flex: 1; }
+    .flip-icon-pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--purple-faint); color: var(--purple-primary);
+      border-radius: 9999px; padding: 3px 10px 3px 7px;
+      font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 7px;
+      transition: all .3s ease;
+    }
+    .flip-wrapper:hover:not(.flipped) .flip-icon-pill {
+      background: var(--purple-primary); color: #fff;
+    }
+
+    /* back typography */
+    .flip-close-hint {
+      position: absolute; top: 13px; right: 13px;
+      font-family: 'Lato', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.3);
+    }
+    .flip-back-label {
+      font-family: 'Lato', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(212,175,122,.65); margin-bottom: 4px;
+    }
+    .flip-back-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 21px;
+      font-weight: 500; color: #F5A623; line-height: 1.1; margin-bottom: 2px;
+    }
+    .flip-back-sub {
+      font-family: 'Lato', sans-serif; font-size: 12px;
+      color: rgba(255,255,255,.5); margin-bottom: 7px;
+    }
+    .flip-back-desc {
+      font-family: 'Lato', sans-serif; font-size: 13px;
+      color: rgba(255,255,255,.78); line-height: 1.58; margin-bottom: 11px;
+    }
+    .flip-badges { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+    .flip-badge-time {
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      border-radius: 9999px; padding: 3px 9px;
+      font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700;
+      color: rgba(255,255,255,.8); letter-spacing: .06em;
+    }
+    .flip-badge-price {
+      background: rgba(245,166,35,.15); border: 1px solid rgba(245,166,35,.3);
+      border-radius: 9999px; padding: 3px 9px;
+      font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700;
+      color: #F5A623; letter-spacing: .06em;
+    }
+    .flip-book-btn {
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      background: linear-gradient(135deg, var(--purple-primary), var(--purple-mid));
+      color: #fff; border-radius: 9999px; padding: 9px 14px;
+      font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
+      box-shadow: 0 4px 14px rgba(74,14,107,.4); transition: all .25s ease;
+    }
+    .flip-book-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(74,14,107,.55); }
+    /* ══ RESPONSIVE — MOBILE FIRST ══════════════════ */
+    @media (max-width: 768px) {
+
+      /* Global spacing */
+      body { padding-bottom: 88px; }
+      section { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+      .max-w-7xl, .max-w-6xl { padding-left: 18px !important; padding-right: 18px !important; }
+
+      /* Nav */
+      #main-nav .h-20 { height: 64px !important; }
+
+      /* Hero */
+      .hero-wrap { min-height: 100svh; }
+      .hero-wrap .pt-12 { padding-top: 80px !important; }
+      .hero-wrap .pb-10 { padding-bottom: 120px !important; }
+
+      /* Trust bar — stack to 2 cols on mobile */
+      .hero-wrap ~ div .grid-cols-4,
+      #trust-bar .grid-cols-4 { grid-template-columns: 1fr 1fr !important; gap: 20px !important; }
+
+      /* Service cards — single column */
+      #treatments-grid { grid-template-columns: 1fr !important; }
+      .flip-wrapper { height: auto !important; min-height: 420px; }
+      .flip-inner { height: 420px; }
+
+      /* Team — single column */
+      #team .grid { grid-template-columns: 1fr !important; }
+      .team-card video { height: 220px !important; }
+
+      /* Location — stack */
+      #location .grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+      #location iframe { height: 300px !important; }
+
+      /* Reviews marquee — slower on mobile */
+      .marquee-track.row-1 { animation-duration: 28s; }
+      .marquee-track.row-2 { animation-duration: 28s; }
+      .rev-tile { width: 260px !important; }
+
+      /* Gallery */
+      .gallery-slide { min-width: 85% !important; }
+
+      /* FAQ */
+      details.faq-item summary { font-size: 14px; padding: 16px 18px; }
+      .faq-body { padding: 0 18px 16px; }
+
+      /* Appointment form */
+      #appointments .max-w-3xl { padding-left: 18px !important; padding-right: 18px !important; }
+
+      /* Footer */
+      footer .grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+      footer .col-span-2 { grid-column: span 1 !important; }
+    }
+
+    @media (max-width: 480px) {
+      /* Hero headline minimum size */
+      h1 { font-size: 2.2rem !important; }
+
+      /* Service cards full height */
+      .flip-inner { height: 460px; }
+
+      /* Trust bar — single column on very small screens */
+      #trust-bar .grid { grid-template-columns: 1fr 1fr !important; }
+
+      /* Team card image */
+      .team-card video { height: 200px !important; }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      /* Tablet — 2 col grid for cards */
+      #treatments-grid { grid-template-columns: 1fr 1fr !important; }
+
+      /* Team — 3 col stays but tighter */
+      #team .grid { gap: 20px !important; }
+
+      /* Location */
+      #location .grid { gap: 32px !important; }
+    }
+
+    /* ══ FOCUS RINGS (a11y) ═════════════════════════ */
+    .btn-gold:focus-visible,
+    .btn-primary:focus-visible,
+    .btn-outline:focus-visible,
+    .btn-gold-sm:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+    a:focus-visible,
+    button:focus-visible,
+    [tabindex="0"]:focus-visible {
+      outline: 2px solid var(--purple-accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ══ TOUCH-ACTION (removes 300ms tap delay) ══════ */
+    a, button, [tabindex="0"], .flip-wrapper,
+    .carousel-dot, .concern-pill, summary {
+      touch-action: manipulation;
+    }
+
+    /* ══ PREFERS REDUCED MOTION ══════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .marquee-track { animation: none !important; }
+      .fade-up { animation: none; opacity: 1; transform: none; }
+      .reveal  { opacity: 1; transform: none; }
+      .scroll-indicator { animation: none; }
+      .sparkle { animation: none; opacity: 0; }
+    }
+
+    /* ══ REVIEWS MARQUEE ════════════════════════════ */
+    .marquee-wrapper { overflow: hidden; position: relative; }
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrapper::before { left: 0; background: linear-gradient(to right, #fff 0%, transparent 100%); }
+    .marquee-wrapper::after  { right: 0; background: linear-gradient(to left, #fff 0%, transparent 100%); }
+    .marquee-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+    }
+    .marquee-track.row-1 { animation: marquee-left 40s linear infinite; }
+    .marquee-track.row-2 { animation: marquee-right 40s linear infinite; }
+    @keyframes marquee-left  { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    .marquee-wrapper:hover .marquee-track { animation-play-state: paused; }
+    .rev-tile {
+      flex-shrink: 0;
+      width: 300px;
+      background: #fff;
+      border: 1px solid rgba(195,155,211,.22);
+      border-radius: 18px;
+      padding: 22px 24px;
+      box-shadow: 0 3px 16px rgba(74,14,107,.06);
+    }
+    .rev-stars { display: flex; gap: 3px; margin-bottom: 12px; }
+    .rev-stars svg { width: 15px; height: 15px; fill: #F5A623; stroke: #F5A623; }
+    .rev-text { font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 300; color: #4A3060; line-height: 1.7; margin-bottom: 16px; }
+    .rev-author { display: flex; align-items: center; gap: 10px; border-top: 1px solid rgba(195,155,211,.18); padding-top: 14px; }
+    .rev-avatar { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .rev-name { font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; color: #1A0A2E; }
+    .rev-date { font-family: 'Lato', sans-serif; font-size: 12px; color: #9B6BBE; margin-top: 1px; }
+  
+/**/</style>
+
+
+  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b transition-all duration-300 shadow-sm" id="main-nav" style="border-color: rgba(195, 155, 211, 0.2); box-shadow: rgba(74, 14, 107, 0.1) 0px 4px 24px;">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+
+      
+      <a href="#" class="flex items-center z-50 relative">
+        <img src="/web/image/6305" alt="Eclipse Spa and Laser Centre" style="height: 64px; width: auto; display: block;" loading="lazy"/>
+      </a>
+
+      
+      <div class="hidden lg:flex items-center gap-8" style="font-family:'Lato',sans-serif;font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#4A0E6B;">
+        <a href="#services" class="hover:text-purple-700 transition-colors" style="text-decoration: none;"><font style="color: inherit !important;">Services</font></a>
+        <a href="#gallery" class="hover:text-purple-700 transition-colors" style="text-decoration: none;"><font style="color: inherit !important;">Gallery</font></a>
+        <a href="#team" class="hover:text-purple-700 transition-colors" style="text-decoration: none;"><font style="color: inherit !important;">Team</font></a>
+        <a href="#location" class="hover:text-purple-700 transition-colors" style="text-decoration: none;"><font style="color: inherit !important;">Location</font></a>
+        <a href="#new-guests" class="hover:text-purple-700 transition-colors" style="text-decoration: none;"><font style="color: inherit !important;">New Guests</font></a>
+        
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=4383+Portage+Rd+Unit+B100+Niagara+Falls+ON+L2E+6A6" target="_blank" class="flex items-center gap-1.5 transition-opacity hover:opacity-70" style="font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--purple-accent);text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" aria-hidden="true" class="lucide lucide-map-pin w-3 h-3"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg> Niagara Falls
+        </a>
+      </div>
+
+      
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="tel:+12892777140" class="btn-gold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" aria-hidden="true" class="lucide lucide-phone w-4 h-4 text-purple-950"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
+          (289) 277-7140
+        </a>
+      </div>
+
+      
+      <div class="flex lg:hidden items-center gap-2 ml-auto z-50">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" aria-hidden="true" class="lucide lucide-phone w-4 h-4"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
+        
+        <button id="mobile-toggle" class="hidden p-2 text-purple-900" aria-label="Toggle Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" aria-hidden="true" class="lucide lucide-menu w-7 h-7"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    
+    <div id="mobile-menu" class="fixed inset-0 z-40 flex-col pt-28 px-8 pb-10 overflow-y-auto menu-hidden" style="background:var(--purple-whisper);">
+      <div class="flex flex-col gap-0">
+        <a href="#services" class="mobile-link py-5 border-b flex items-center justify-between" style="border-color:rgba(195,155,211,.3);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);text-decoration:none;">Skin Concerns <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-5 h-5" style="opacity:.4;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="#gallery" class="mobile-link py-5 border-b flex items-center justify-between" style="border-color:rgba(195,155,211,.3);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);text-decoration:none;">Gallery <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-5 h-5" style="opacity:.4;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="#location" class="mobile-link py-5 border-b flex items-center justify-between" style="border-color:rgba(195,155,211,.3);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);text-decoration:none;">Location <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-5 h-5" style="opacity:.4;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="#appointments" class="mobile-link py-5 flex items-center justify-between" style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--purple-primary);text-decoration:none;">Book Consult <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-5 h-5" style="opacity:.4;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+      <div class="mt-10 space-y-4">
+        <a href="#appointments" class="btn-gold w-full justify-center mobile-link">Book a Free Consult</a>
+        <a href="tel:+12892777140" class="w-full flex items-center justify-center gap-2 py-4 rounded-full mobile-link" style="border:1.5px solid var(--purple-primary);font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-primary);text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" aria-hidden="true" class="lucide lucide-phone w-4 h-4"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg> Call Us Now
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <header class="hero-wrap">
+    
+    <video class="hero-video" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" poster="/web/image/6306">
+      <source src="assets/hero.mp4" type="video/mp4">
+      
+    </source></video>
+    
+    <div class="hero-overlay"/>
+    
+    <div class="hero-grain"/>
+    
+    <div class="sparkle" style="top:15%;left:20%;--d:3.5s;"/>
+    <div class="sparkle" style="top:35%;left:55%;--d:5s;animation-delay:1s;"/>
+    <div class="sparkle" style="top:60%;left:35%;--d:4s;animation-delay:2s;"/>
+    <div class="sparkle" style="top:25%;left:75%;--d:6s;animation-delay:.5s;"/>
+    <div class="sparkle" style="top:70%;left:80%;--d:4.5s;animation-delay:1.5s;"/>
+    <div class="sparkle" style="top:50%;left:10%;--d:5.5s;animation-delay:3s;"/>
+    <div class="sparkle" style="top:10%;left:88%;--d:7s;animation-delay:2.2s;"/>
+
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-12 pb-10 flex flex-col items-center text-center" style="position:relative;z-index:4;flex:1;">
+      <div class="max-w-3xl space-y-8 flex flex-col items-center">
+        
+        <div class="fade-up flex items-center gap-2">
+          <div class="flex gap-0.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="star" aria-hidden="true" class="lucide lucide-star w-4 h-4 fill-[#F5A623] stroke-[#F5A623]"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="star" aria-hidden="true" class="lucide lucide-star w-4 h-4 fill-[#F5A623] stroke-[#F5A623]"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="star" aria-hidden="true" class="lucide lucide-star w-4 h-4 fill-[#F5A623] stroke-[#F5A623]"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="star" aria-hidden="true" class="lucide lucide-star w-4 h-4 fill-[#F5A623] stroke-[#F5A623]"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="star" aria-hidden="true" class="lucide lucide-star w-4 h-4 fill-[#F5A623] stroke-[#F5A623]"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+          </div>
+          <span style="font-family:'Lato',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.85);letter-spacing:.04em;">4.9 Stars · 300+ Happy Guests</span>
+        </div>
+        <h1 class="fade-up delay-100 text-white" style="font-size:clamp(2.6rem,5vw,3.8rem);font-weight:700;line-height:1.12;letter-spacing:-.01em;">
+          Where Tranquility<br/>
+          <em style="font-style:italic;font-weight:300;color:var(--gold-light);">Meets Transformation</em><br/>
+          <span style="font-weight:700;">in Niagara Falls</span>
+        </h1>
+        <div class="fade-up delay-200" style="max-width:580px;">
+          <p style="font-family:'Lato',sans-serif;font-size:18px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.82);">
+            Niagara Falls' most trusted laser and skin clinic — combining medical-grade technology with a genuinely personal touch. Real results, real care, zero pressure.
+          </p>
+        </div>
+        
+        
+        <div class="fade-up delay-300 flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <div class="flex flex-col gap-1.5 items-center">
+            <a href="#appointments" class="btn-gold justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-4 h-4 text-purple-950"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+              Book a Free Consult
+            </a>
+          </div>
+          
+          <a href="tel:+12892777140" class="btn-outline justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" aria-hidden="true" class="lucide lucide-phone w-4 h-4"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
+            (289) 277-7140
+          </a>
+        </div>
+        <span style="font-family:'Lato',sans-serif;font-size:11px;color:rgba(255,255,255,.55);letter-spacing:.1em;font-weight:400;">✓ Free consultation &amp;nbsp;·&amp;nbsp; No commitment &amp;nbsp;·&amp;nbsp; Same-week availability</span>
+      </div>
+      
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 scroll-indicator" style="opacity:.45;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" aria-hidden="true" class="lucide lucide-chevron-down w-5 h-5 text-white"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
+    </div>
+
+  </header>
+
+  
+  <div class="w-full" style="background:#1A0A2E;padding:32px 0;">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-4 gap-8 text-center">
+      <div class="flex flex-col items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-7 h-7" style="color:rgba(255,255,255,0.9);"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+        <span style="font-family:'Lato',sans-serif;font-size:15px;font-weight:800;color:#ffffff;line-height:1.3;letter-spacing:.02em;">Certified Estheticians</span>
+        <span style="font-family:'Lato',sans-serif;font-size:11px;font-weight:400;color:rgba(255,255,255,.65);line-height:1.6;max-width:180px;">Licensed specialists with clinical training — so every treatment is safe, effective, and tailored to you.</span>
+      </div>
+      <div class="flex flex-col items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-7 h-7" style="color:rgba(255,255,255,0.9);"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        <span style="font-family:'Lato',sans-serif;font-size:15px;font-weight:800;color:#ffffff;line-height:1.3;letter-spacing:.02em;">Premium Canadian Products</span>
+        <span style="font-family:'Lato',sans-serif;font-size:11px;font-weight:400;color:rgba(255,255,255,.65);line-height:1.6;max-width:180px;">Medical-grade formulations from trusted Canadian and European brands — nothing harsh, nothing generic.</span>
+      </div>
+      <div class="flex flex-col items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-7 h-7" style="color:rgba(255,255,255,0.9);"><path d="M12 3c-4.97 0-9 3.185-9 7.115 0 2.557 1.522 4.82 3.889 6.204L6 21l4.797-2.187A10.7 10.7 0 0 0 12 19c4.97 0 9-3.185 9-7.115C21 7.955 16.97 4.77 12 4.77"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg>
+        <span style="font-family:'Lato',sans-serif;font-size:15px;font-weight:800;color:#ffffff;line-height:1.3;letter-spacing:.02em;">Clean &amp;amp; Cruelty-Free</span>
+        <span style="font-family:'Lato',sans-serif;font-size:11px;font-weight:400;color:rgba(255,255,255,.65);line-height:1.6;max-width:180px;">100% vegan, cruelty-free, and fragrance-conscious. Good for your skin and your conscience.</span>
+      </div>
+      <div class="flex flex-col items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-7 h-7" style="color:rgba(255,255,255,0.9);"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+        <span style="font-family:'Lato',sans-serif;font-size:15px;font-weight:800;color:#ffffff;line-height:1.3;letter-spacing:.02em;">Personalized Care</span>
+        <span style="font-family:'Lato',sans-serif;font-size:11px;font-weight:400;color:rgba(255,255,255,.65);line-height:1.6;max-width:180px;">Every visit starts with a private skin consultation — because your skin is unique and your treatment should be too.</span>
+      </div>
+    </div>
+  </div>
+
+  
+  <section id="services" style="background:#fff;padding:6rem 0 7rem;" class="o_colored_level">
+    <div class="max-w-7xl mx-auto px-6">
+
+      
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+        <span class="section-eyebrow">Targeted Transformation</span>
+        <h2 style="font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;color:#1A0A2E;letter-spacing:-.01em;line-height:1.15;">
+          What’s Your Current Skin Concern?<br/>
+          <em style="font-style:italic;font-weight:300;color:var(--purple-accent);">Our treatments are built for you.</em>
+        </h2>
+        <div class="divider-ornament">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" aria-hidden="true" class="lucide lucide-sparkles w-4 h-4" style="color:var(--gold);flex-shrink:0;"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+        </div>
+        <p style="font-family:'Lato',sans-serif;font-size:16px;font-weight:300;color:#7A5A90;line-height:1.75;">
+          Tap any card to reveal the exact treatment we use to solve it — and book your free consultation in seconds.
+        </p>
+      </div>
+
+      
+      <div id="treatments-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+
+        
+        <div class="flip-wrapper reveal" id="card-pigment" role="button" tabindex="0" aria-label="Pigment &amp; Scarring treatments — tap to reveal" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}" style="transition: opacity 0.65s, transform 0.65s; opacity: 1; transform: translateY(0px);" fdprocessedid="94s4h8">
+          <div class="flip-inner">
+            
+            <div class="flip-front flex flex-col h-full" style="background:#fff;border:1px solid rgba(195,155,211,.2);border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(74,14,107,0.08);">
+              <div style="height:170px;position:relative;flex-shrink:0;overflow:hidden;">
+                <img src="https://www.eclipsespa.ca/web/image/2245-20f8e472/Blog%20Post%20%27Acne%20Scarring%27%20cover%20image.webp" alt="Acne Scarring treatment at Eclipse Spa" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy"/>
+                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,46,0.5) 0%,transparent 60%);pointer-events:none;"/>
+                <span style="position:absolute;top:14px;left:14px;background:rgba(212,175,122,.9);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;border-radius:99px;padding:3px 10px;">⚡ Laser &amp;amp; Device</span>
+                <span style="position:absolute;bottom:12px;right:14px;font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#D4AF7A;">Tap to Discover</span>
+              </div>
+              <div style="padding:14px 16px;flex:1;display:flex;flex-direction:column;">
+                <div>
+                  <h3 style="font-family:'Lato',sans-serif;font-size:17px;font-weight:800;color:#1A0A2E;line-height:1.2;margin-bottom:6px;">Pigment &amp;amp; Scarring</h3>
+                  <p style="font-family:'Lato',sans-serif;font-size:12px;color:#7A5A90;line-height:1.5;">From deep acne scars to stubborn dark spots — our revolutionary <strong style="color:#4A0E6B;">laser technologies</strong> target the root cause.</p>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;margin-bottom:8px;">
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Acne Scarring</span>
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Melasma</span>
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Pigmentation</span>
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Sun Damage</span>
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Tattoo Removal</span>
+                </div>
+                <a href="#appointments" onclick="event.stopPropagation();" style="display:inline-flex;align-items:center;justify-content:center;align-self:center;margin-top:auto;gap:8px;background:linear-gradient(135deg,#D4AF7A,#B89660);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:11px 24px;border-radius:99px;text-decoration:none;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-3.5 h-3.5"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg> Book Free Consult
+                </a>
+              </div>
+            </div>
+            
+            <div class="flip-back flex flex-col h-full p-5" style="background:#1A0A2E;border-radius:20px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <span style="background:rgba(212,175,122,.15);color:#D4AF7A;font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border-radius:99px;padding:3px 10px;">⚡ Laser &amp;amp; Device</span>
+                <span style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;">Tap to Close ×</span>
+              </div>
+              <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.3;">Your concern, mapped to a solution</p>
+              <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;gap:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07);">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(195,155,211,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" aria-hidden="true" class="lucide lucide-sparkles w-3.5 h-3.5" style="color:#C39BD3;"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg></div>
+                  <div><p style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Acne Scarring</p><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:2px;">DP4 Microneedling</p><p style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.55);line-height:1.45;">Triggers collagen induction to lift and smooth scars</p></div>
+                </div>
+                <div style="display:flex;gap:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07);">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(195,155,211,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="zap" aria-hidden="true" class="lucide lucide-zap w-3.5 h-3.5" style="color:#C39BD3;"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div>
+                  <div><p style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Melasma &amp;amp; Pigmentation</p><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:2px;">PicoSure Pro Laser</p><p style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.55);line-height:1.45;">Shatters pigment without heat damage, zero downtime</p></div>
+                </div>
+                <div style="display:flex;gap:10px;">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(195,155,211,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sun" aria-hidden="true" class="lucide lucide-sun w-3.5 h-3.5" style="color:#C39BD3;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></div>
+                  <div><p style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Sun Damage &amp;amp; Tattoo Removal</p><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:2px;">Pico Focus Laser</p><p style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.55);line-height:1.45;">Clears UV damage and ink with clinical precision</p></div>
+                </div>
+              </div>
+              <a href="#appointments" onclick="event.stopPropagation();" style="margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#D4AF7A,#B89660);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:12px;border-radius:99px;text-decoration:none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-3.5 h-3.5"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg> Book Free Consult
+              </a>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="flip-wrapper reveal" id="card-skin-renewal" role="button" tabindex="0" aria-label="Redness, Acne &amp; Texture treatments — tap to reveal" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}" style="transition: opacity 0.65s 55ms, transform 0.65s 55ms; opacity: 1; transform: translateY(0px);" fdprocessedid="ln6ir2">
+          <div class="flip-inner">
+            
+            <div class="flip-front flex flex-col h-full" style="background:#fff;border:1px solid rgba(195,155,211,.2);border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(74,14,107,0.08);">
+              <div style="height:170px;position:relative;flex-shrink:0;overflow:hidden;">
+                <img src="https://www.eclipsespa.ca/web/image/2648-cc0a70ba/Blog%20Post%20%27Redness%27%20cover%20image.webp" alt="Redness and skin texture treatment at Eclipse Spa" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy"/>
+                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,46,0.5) 0%,transparent 60%);pointer-events:none;"/>
+                <span style="position:absolute;top:14px;left:14px;background:rgba(212,175,122,.9);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;border-radius:99px;padding:3px 10px;">✦ Skin Renewal</span>
+                <span style="position:absolute;bottom:12px;right:14px;font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#D4AF7A;">Tap to Discover</span>
+              </div>
+              <div style="padding:14px 16px;flex:1;display:flex;flex-direction:column;">
+                <div>
+                  <h3 style="font-family:'Lato',sans-serif;font-size:17px;font-weight:800;color:#1A0A2E;line-height:1.2;margin-bottom:6px;">Redness, Acne &amp;amp; Texture</h3>
+                  <p style="font-family:'Lato',sans-serif;font-size:12px;color:#7A5A90;line-height:1.5;">Calm inflammation, clear breakouts and refine surface skin with our unique <strong style="color:#4A0E6B;">facial treatments</strong>.</p>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;margin-bottom:8px;">
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Rosacea &amp;amp; Redness</span>
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Active Acne</span>
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Enlarged Pores</span>
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Uneven Texture</span>
+                </div>
+                <a href="#appointments" onclick="event.stopPropagation();" style="display:inline-flex;align-items:center;justify-content:center;align-self:center;margin-top:auto;gap:8px;background:linear-gradient(135deg,#D4AF7A,#B89660);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:11px 24px;border-radius:99px;text-decoration:none;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-3.5 h-3.5"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg> Book Free Consult
+                </a>
+              </div>
+            </div>
+            
+            <div class="flip-back flex flex-col h-full p-5" style="background:#1A0A2E;border-radius:20px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <span style="background:rgba(212,175,122,.15);color:#D4AF7A;font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border-radius:99px;padding:3px 10px;">✦ Facial Treatments</span>
+                <span style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;">Tap to Close ×</span>
+              </div>
+              <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.3;">Your concern, mapped to a solution</p>
+              <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;gap:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07);">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(195,155,211,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-alert" aria-hidden="true" class="lucide lucide-shield-alert w-3.5 h-3.5" style="color:#C39BD3;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+                  <div><p style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Rosacea &amp;amp; Redness</p><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:2px;">Soothing Clarifying Facial</p><p style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.55);line-height:1.45;">Calms vascular redness and deeply hydrates sensitive skin</p></div>
+                </div>
+                <div style="display:flex;gap:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07);">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(195,155,211,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" aria-hidden="true" class="lucide lucide-activity w-3.5 h-3.5" style="color:#C39BD3;"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></div>
+                  <div><p style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Active Acne &amp;amp; Enlarged Pores</p><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:2px;">BelaMD Treatment</p><p style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.55);line-height:1.45;">Deep-cleanses pores and eliminates active breakouts</p></div>
+                </div>
+                <div style="display:flex;gap:10px;">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(195,155,211,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="gem" aria-hidden="true" class="lucide lucide-gem w-3.5 h-3.5" style="color:#C39BD3;"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></div>
+                  <div><p style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Uneven Texture</p><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:2px;">Refining Peel</p><p style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.55);line-height:1.45;">Resurfaces and smooths for a refined, even complexion</p></div>
+                </div>
+              </div>
+              <a href="#appointments" onclick="event.stopPropagation();" style="margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#D4AF7A,#B89660);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:12px;border-radius:99px;text-decoration:none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-3.5 h-3.5"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg> Book Free Consult
+              </a>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="flip-wrapper reveal" id="card-antiaging" role="button" tabindex="0" aria-label="Anti-Aging &amp; Glow treatments — tap to reveal" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}" style="transition: opacity 0.65s 110ms, transform 0.65s 110ms; opacity: 1; transform: translateY(0px);" fdprocessedid="m0tqnu">
+          <div class="flip-inner">
+            
+            <div class="flip-front flex flex-col h-full" style="background:#fff;border:1px solid rgba(195,155,211,.2);border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(74,14,107,0.08);">
+              <div style="height:170px;position:relative;flex-shrink:0;overflow:hidden;">
+                <img src="https://www.eclipsespa.ca/web/image/2644-8bd59de8/Blog%20Post%20%27Fine%20Lines%20and%20Wrinkles%27%20cover%20image.webp" alt="Fine lines and anti-aging treatment at Eclipse Spa" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy"/>
+                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,46,0.5) 0%,transparent 60%);pointer-events:none;"/>
+                <span style="position:absolute;top:14px;left:14px;background:rgba(212,175,122,.9);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;border-radius:99px;padding:3px 10px;">✦ Rejuvenation</span>
+                <span style="position:absolute;bottom:12px;right:14px;font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#D4AF7A;">Tap to Discover</span>
+              </div>
+              <div style="padding:14px 16px 10px;flex:1;display:flex;flex-direction:column;">
+                <div>
+                  <h3 style="font-family:'Lato',sans-serif;font-size:17px;font-weight:800;color:#1A0A2E;line-height:1.2;margin-bottom:6px;">Anti-Aging &amp;amp; Glow</h3>
+                  <p style="font-family:'Lato',sans-serif;font-size:12px;color:#7A5A90;line-height:1.5;">Restore volume, firmness and radiance with our revolutionary <strong style="color:#4A0E6B;">rejuvenation protocols</strong>.</p>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;margin-bottom:8px;">
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Fine Lines &amp;amp; Wrinkles</span>
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Loss of Firmness</span>
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Dull Skin</span>
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Dehydration</span>
+                </div>
+                <a href="#appointments" onclick="event.stopPropagation();" style="display:inline-flex;align-items:center;justify-content:center;align-self:center;margin-top:auto;gap:8px;background:linear-gradient(135deg,#D4AF7A,#B89660);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:11px 24px;border-radius:99px;text-decoration:none;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-3.5 h-3.5"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg> Book Free Consult
+                </a>
+              </div>
+            </div>
+            
+            <div class="flip-back flex flex-col h-full p-5" style="background:#1A0A2E;border-radius:20px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <span style="background:rgba(212,175,122,.15);color:#D4AF7A;font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border-radius:99px;padding:3px 10px;">✦ Rejuvenation</span>
+                <span style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;">Tap to Close ×</span>
+              </div>
+              <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.3;">Your concern, mapped to a solution</p>
+              <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;gap:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07);">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(195,155,211,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="hourglass" aria-hidden="true" class="lucide lucide-hourglass w-3.5 h-3.5" style="color:#C39BD3;"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg></div>
+                  <div><p style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Fine Lines &amp;amp; Wrinkles</p><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:2px;">DP4 Microneedling</p><p style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.55);line-height:1.45;">Stimulates collagen to smooth and firm aging skin</p></div>
+                </div>
+                <div style="display:flex;gap:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07);">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(195,155,211,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sun" aria-hidden="true" class="lucide lucide-sun w-3.5 h-3.5" style="color:#C39BD3;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></div>
+                  <div><p style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Dull Skin &amp;amp; Loss of Glow</p><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:2px;">Brightening Vitamin C Facial</p><p style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.55);line-height:1.45;">Floods skin with antioxidants for instant radiance</p></div>
+                </div>
+                <div style="display:flex;gap:10px;">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(195,155,211,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="droplet" aria-hidden="true" class="lucide lucide-droplet w-3.5 h-3.5" style="color:#C39BD3;"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div>
+                  <div><p style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Dehydrated Skin</p><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:2px;">Refresh Hydration Facial</p><p style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.55);line-height:1.45;">Deeply replenishes moisture for plump, supple skin</p></div>
+                </div>
+              </div>
+              <a href="#appointments" onclick="event.stopPropagation();" style="margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#D4AF7A,#B89660);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:12px;border-radius:99px;text-decoration:none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-3.5 h-3.5"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg> Book Free Consult
+              </a>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="flip-wrapper reveal" id="card-body" role="button" tabindex="0" aria-label="Body &amp; Enhancement treatments — tap to reveal" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}" style="transition: opacity 0.65s 165ms, transform 0.65s 165ms; opacity: 1; transform: translateY(0px);" fdprocessedid="isu8po">
+          <div class="flip-inner">
+            
+            <div class="flip-front flex flex-col h-full" style="background:#fff;border:1px solid rgba(195,155,211,.2);border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(74,14,107,0.08);">
+              <div style="height:170px;position:relative;flex-shrink:0;overflow:hidden;">
+                <img src="https://www.eclipsespa.ca/web/image/2640-d4ce40f5/Blog%20Post%20%27EnlargedDilated%20Pores%20and%20Blackheads%27%20cover%20image.webp" alt="Body and enhancement treatments at Eclipse Spa" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy"/>
+                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,46,0.5) 0%,transparent 60%);pointer-events:none;"/>
+                <span style="position:absolute;top:14px;left:14px;background:rgba(212,175,122,.9);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;border-radius:99px;padding:3px 10px;">✦ Body &amp;amp; Enhancement</span>
+                <span style="position:absolute;bottom:12px;right:14px;font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#D4AF7A;">Tap to Discover</span>
+              </div>
+              <div style="padding:14px 16px;flex:1;display:flex;flex-direction:column;">
+                <div>
+                  <h3 style="font-family:'Lato',sans-serif;font-size:17px;font-weight:800;color:#1A0A2E;line-height:1.2;margin-bottom:6px;">Body &amp;amp; Enhancement</h3>
+                  <p style="font-family:'Lato',sans-serif;font-size:12px;color:#7A5A90;line-height:1.5;">From laser hair removal to lash lifts — our <strong style="color:#4A0E6B;">enhancement services</strong> complete the full experience.</p>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;margin-bottom:8px;">
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Unwanted Hair</span>
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Lash &amp;amp; Brow</span>
+                  <span style="background:rgba(195,155,211,.18);color:#4A0E6B;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;border-radius:8px;padding:5px 10px;">Muscle Tension</span>
+                </div>
+                <a href="#appointments" onclick="event.stopPropagation();" style="display:inline-flex;align-items:center;justify-content:center;align-self:center;margin-top:auto;gap:8px;background:linear-gradient(135deg,#D4AF7A,#B89660);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:11px 24px;border-radius:99px;text-decoration:none;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-3.5 h-3.5"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg> Book Free Consult
+                </a>
+              </div>
+            </div>
+            
+            <div class="flip-back flex flex-col h-full p-5" style="background:#1A0A2E;border-radius:20px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <span style="background:rgba(212,175,122,.15);color:#D4AF7A;font-family:'Lato',sans-serif;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border-radius:99px;padding:3px 10px;">✦ Enhancement</span>
+                <span style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;">Tap to Close ×</span>
+              </div>
+              <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.3;">Your concern, mapped to a solution</p>
+              <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;gap:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07);">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(195,155,211,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="zap" aria-hidden="true" class="lucide lucide-zap w-3.5 h-3.5" style="color:#C39BD3;"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div>
+                  <div><p style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Unwanted Hair</p><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:2px;">Diode Laser Hair Removal</p><p style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.55);line-height:1.45;">Permanent hair reduction on face and body</p></div>
+                </div>
+                <div style="display:flex;gap:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07);">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(195,155,211,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="eye" aria-hidden="true" class="lucide lucide-eye w-3.5 h-3.5" style="color:#C39BD3;"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></div>
+                  <div><p style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Lash &amp;amp; Brow</p><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:2px;">Lash Lift &amp;amp; Brow Lamination</p><p style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.55);line-height:1.45;">Defines and lifts for a polished, wide-eyed look</p></div>
+                </div>
+                <div style="display:flex;gap:10px;">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(195,155,211,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="heart" aria-hidden="true" class="lucide lucide-heart w-3.5 h-3.5" style="color:#C39BD3;"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg></div>
+                  <div><p style="font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Muscle Tension</p><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:2px;">Therapeutic Massage Facial</p><p style="font-family:'Lato',sans-serif;font-size:10px;color:rgba(255,255,255,.55);line-height:1.45;">Releases tension and restores deep relaxation</p></div>
+                </div>
+              </div>
+              <a href="#appointments" onclick="event.stopPropagation();" style="margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#D4AF7A,#B89660);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:12px;border-radius:99px;text-decoration:none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-3.5 h-3.5"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg> Book Free Consult
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  
+  <section id="gallery" style="background:var(--purple-whisper);padding:clamp(3rem,8vw,7rem) 0;overflow:hidden;" class="o_colored_level">
+    <div class="max-w-7xl mx-auto px-6">
+
+      
+      <div class="flex flex-col items-center text-center md:flex-row md:justify-between md:items-end md:text-left mb-10 gap-4">
+        <div>
+          <span class="section-eyebrow">Inside Eclipse Spa</span>
+          <h2 style="font-size:clamp(2rem,4.5vw,3rem);font-weight:400;color:#1A0A2E;margin-top:8px;margin-bottom:0;">
+            Our Serene<br/><em style="font-style:italic;font-weight:300;">Sanctuary</em>
+          </h2>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="gallery-prev" class="gallery-nav-btn" aria-label="Previous" fdprocessedid="iu1mz4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-left" aria-hidden="true" class="lucide lucide-chevron-left w-5 h-5"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button id="gallery-next" class="gallery-nav-btn" aria-label="Next" fdprocessedid="0ei2vc">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-5 h-5"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      
+      <div style="overflow:hidden;border-radius:4px;" id="gallery-viewport">
+        <div class="gallery-track" id="gallery-track" style="transform: translateX(-66.6667%);">
+          <div class="gallery-slide">
+            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
+              <img src="/web/image/6306" alt="Eclipse Spa — Gallery 1" class="gallery-img" loading="lazy"/>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
+              <img src="/web/image/6307" alt="Eclipse Spa — Gallery 2" class="gallery-img" loading="lazy"/>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
+              <img src="/web/image/6308" alt="Eclipse Spa — Gallery 3" class="gallery-img" loading="lazy"/>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
+              <img src="/web/image/6309" alt="Eclipse Spa — Gallery 4" class="gallery-img" loading="lazy"/>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
+              <img src="/web/image/6310" alt="Eclipse Spa — Gallery 5" class="gallery-img" loading="lazy"/>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
+              <img src="/web/image/6311" alt="Eclipse Spa — Gallery 6" class="gallery-img" loading="lazy"/>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
+              <img src="/web/image/6312" alt="Eclipse Spa — Gallery 7" class="gallery-img" loading="lazy"/>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
+              <img src="/web/image/6313" alt="Eclipse Spa — Gallery 8" class="gallery-img" loading="lazy"/>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
+              <img src="/web/image/6314" alt="Eclipse Spa — Gallery 9" class="gallery-img" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="flex items-center justify-center gap-2 mt-8" id="gallery-dots"><button class="carousel-dot active" fdprocessedid="q0nptl"/><button class="carousel-dot" fdprocessedid="y9ps6fi"/><button class="carousel-dot" fdprocessedid="idw3jo"/></div>
+
+    </div>
+  </section>
+
+  
+  <section id="team" style="background:#fff;padding:7rem 0;" class="o_colored_level">
+    <div class="max-w-7xl mx-auto px-6">
+
+      
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
+        <div>
+          <span class="section-eyebrow">The Experts</span>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6vw,4.5rem);font-weight:400;color:#1A0A2E;line-height:1.1;margin-top:8px;">
+            Meet Your Spa<br/><em style="font-style:italic;font-weight:300;">Specialists</em>
+          </h2>
+        </div>
+        <p style="font-family:'Lato',sans-serif;font-size:15px;font-weight:300;color:#9B6BBE;line-height:1.7;max-width:280px;text-align:right;">
+          Our certified team is dedicated to your transformation and total wellbeing.
+        </p>
+      </div>
+
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        
+        <div class="team-card">
+          <div style="height:320px;background:linear-gradient(160deg,#C4A8D8,#8B5E9E);"/>
+          <div style="padding:28px 32px 32px;text-align:center;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:#1A0A2E;">Sophia</h3>
+            <p style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--purple-accent);margin-top:6px;">Lead Esthetician</p>
+            <div style="width:30px;height:1.5px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:1px;margin:14px auto;"/>
+            <p style="font-family:'Lato',sans-serif;font-size:14px;font-weight:300;color:#7A5A90;line-height:1.7;">12 years of expertise in advanced skin therapy, custom facials, and holistic skin health protocols.</p>
+          </div>
+        </div>
+
+        
+        <div class="team-card">
+          <div style="height:320px;position:relative;background:linear-gradient(160deg,#C4A8D8,#8B5E9E);overflow:hidden;">
+            <video autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <source src="/web/content/6315" type="video/mp4">
+            </source></video>
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,46,0.4) 0%,transparent 55%);pointer-events:none;"/>
+          </div>
+          <div style="padding:28px 32px 32px;text-align:center;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:#1A0A2E;">Samantha</h3>
+            <p style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--purple-accent);margin-top:6px;">Laser Specialist</p>
+            <div style="width:30px;height:1.5px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:1px;margin:14px auto;"/>
+            <p style="font-family:'Lato',sans-serif;font-size:14px;font-weight:300;color:#7A5A90;line-height:1.7;">Specializing in therapeutic and relaxation massage — Swedish, deep tissue, and hot stone techniques.</p>
+          </div>
+        </div>
+
+        
+        <div class="team-card">
+          <div style="height:320px;background:linear-gradient(160deg,#C4A8D8,#8B5E9E);"/>
+          <div style="padding:28px 32px 32px;text-align:center;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:#1A0A2E;">Isabelle</h3>
+            <p style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--purple-accent);margin-top:6px;">Massage Therapist</p>
+            <div style="width:30px;height:1.5px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:1px;margin:14px auto;"/>
+            <p style="font-family:'Lato',sans-serif;font-size:14px;font-weight:300;color:#7A5A90;line-height:1.7;">Certified in IPL and advanced laser treatments with a precision-focused approach to skin clarity.</p>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <div class="mt-14 text-center">
+        <a href="#appointments" class="btn-gold" style="text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-4 h-4"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg> Book Free Consult
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  
+  <section id="location" style="background:var(--purple-whisper);padding:7rem 0;" class="o_colored_level">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="section-eyebrow">Find Us</span>
+          <h2 style="font-size:clamp(2rem,4.5vw,3rem);font-weight:400;color:#1A0A2E;margin-top:8px;margin-bottom:36px;">
+            Our Niagara Falls<br/><em style="font-style:italic;font-weight:300;">Sanctuary</em>
+          </h2>
+          <div class="space-y-7">
+            <div class="info-row">
+              <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" aria-hidden="true" class="lucide lucide-map-pin w-5 h-5"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:5px;">
+                  <p style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-accent);margin:0;">Address</p>
+                  <span style="display:inline-flex;align-items:center;gap:5px;background:var(--purple-faint);border-radius:99px;padding:3px 10px;font-family:'Lato',sans-serif;font-size:10px;font-weight:700;color:var(--purple-primary);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="car" aria-hidden="true" class="lucide lucide-car w-3 h-3"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg> Free Parking
+                  </span>
+                </div>
+                <p style="font-family:'Lato',sans-serif;font-size:14px;color:#4A3060;line-height:1.6;">4383 Portage Rd, Unit B100<br/>Niagara Falls, ON L2E 6A6</p>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" aria-hidden="true" class="lucide lucide-clock w-5 h-5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+              <div>
+                <p style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-accent);margin-bottom:5px;">Hours</p>
+                <p style="font-family:'Lato',sans-serif;font-size:14px;color:#4A3060;line-height:1.7;">
+                  Monday – Friday: 10:00 am – 7:00 pm<br/>
+                  Saturday: 9:00 am – 6:00 pm<br/>
+                  Sunday: 10:00 am – 4:00 pm
+                </p>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" aria-hidden="true" class="lucide lucide-phone w-5 h-5"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg></div>
+              <div>
+                <p style="font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-accent);margin-bottom:5px;">Contact</p>
+                <a href="tel:+12892777140" style="font-family: Lato, sans-serif; font-size: 14px; display: block; text-decoration: none;" class="hover:text-purple-700"><font style="color: rgb(74, 48, 96);">(289) 277-7140</font></a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10">
+            <a href="#appointments" class="btn-gold" style="text-decoration:none;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-4 h-4"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+              Book Free Consult
+            </a>
+          </div>
+        </div>
+
+        
+        <div style="position:relative;border-radius:28px;overflow:hidden;height:480px;box-shadow:0 16px 48px rgba(74,14,107,0.12);">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2909.0!2d-79.1!3d43.09!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d3447a8b7a7b7b%3A0x1234567890abcdef!2s4383%20Portage%20Rd%20Unit%20B100%2C%20Niagara%20Falls%2C%20ON%20L2E%206A6!5e0!3m2!1sen!2sca!4v1680000000000!5m2!1sen!2sca" width="100%" height="100%" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Eclipse Spa and Laser Centre location">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section style="background:#fff;padding:6rem 0;overflow:hidden;" class="o_colored_level">
+    <div class="max-w-7xl mx-auto px-6 text-center mb-12">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <span style="font-family:'Lato',sans-serif;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#9B6BBE;">Google Reviews</span>
+      </div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;color:#1A0A2E;line-height:1.2;margin-bottom:12px;">
+        What Our Guests Are Saying
+      </h2>
+      <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;">
+        <div style="display:flex;gap:3px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="star" aria-hidden="true" class="lucide lucide-star w-4 h-4" style="fill:#F5A623;stroke:#F5A623;"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="star" aria-hidden="true" class="lucide lucide-star w-4 h-4" style="fill:#F5A623;stroke:#F5A623;"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="star" aria-hidden="true" class="lucide lucide-star w-4 h-4" style="fill:#F5A623;stroke:#F5A623;"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="star" aria-hidden="true" class="lucide lucide-star w-4 h-4" style="fill:#F5A623;stroke:#F5A623;"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="star" aria-hidden="true" class="lucide lucide-star w-4 h-4" style="fill:#F5A623;stroke:#F5A623;"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+        </div>
+        <span style="font-family:'Lato',sans-serif;font-size:13px;font-weight:700;color:#1A0A2E;">4.9</span>
+        <span style="font-family:'Lato',sans-serif;font-size:13px;color:#9B6BBE;">· 300+ reviews</span>
+      </div>
+    </div>
+
+    
+    <div class="marquee-wrapper mb-5">
+      <div class="marquee-track row-1">
+        
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"Absolutely incredible experience. My skin has never looked better — the results from my laser treatment were visible after just one session."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#4A0E6B,#9B6BBE);">S</div><div><p class="rev-name">Sarah M.</p><p class="rev-date">2 weeks ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"I've struggled with melasma for years and Eclipse Spa is the first place that's actually made a real difference. Samantha made me feel so comfortable throughout."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#B89660,#D4AF7A);">J</div><div><p class="rev-name">Jennifer R.</p><p class="rev-date">1 month ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"The spa is so beautiful and relaxing. I left absolutely glowing. Sophia really customized everything to my skin — I will 100% be coming back!"</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#1a3a4a,#2D6A7A);">M</div><div><p class="rev-name">Michelle T.</p><p class="rev-date">3 weeks ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"Three sessions of DP4 Microneedling and the difference in my acne scarring is night and day. The staff genuinely cares about your results."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#3a2010,#7A4520);">A</div><div><p class="rev-name">Amanda K.</p><p class="rev-date">1 month ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"Hidden gem in Niagara Falls! Isabelle gave me the most relaxing massage I've ever had. Immaculate facility, incredible atmosphere."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#0a3020,#1A5C3A);">L</div><div><p class="rev-name">Lisa P.</p><p class="rev-date">2 months ago · Google</p></div></div></div>
+        
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"Absolutely incredible experience. My skin has never looked better — the results from my laser treatment were visible after just one session."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#4A0E6B,#9B6BBE);">S</div><div><p class="rev-name">Sarah M.</p><p class="rev-date">2 weeks ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"I've struggled with melasma for years and Eclipse Spa is the first place that's actually made a real difference. Samantha made me feel so comfortable throughout."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#B89660,#D4AF7A);">J</div><div><p class="rev-name">Jennifer R.</p><p class="rev-date">1 month ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"The spa is so beautiful and relaxing. I left absolutely glowing. Sophia really customized everything to my skin — I will 100% be coming back!"</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#1a3a4a,#2D6A7A);">M</div><div><p class="rev-name">Michelle T.</p><p class="rev-date">3 weeks ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"Three sessions of DP4 Microneedling and the difference in my acne scarring is night and day. The staff genuinely cares about your results."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#3a2010,#7A4520);">A</div><div><p class="rev-name">Amanda K.</p><p class="rev-date">1 month ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"Hidden gem in Niagara Falls! Isabelle gave me the most relaxing massage I've ever had. Immaculate facility, incredible atmosphere."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#0a3020,#1A5C3A);">L</div><div><p class="rev-name">Lisa P.</p><p class="rev-date">2 months ago · Google</p></div></div></div>
+      </div>
+    </div>
+
+    
+    <div class="marquee-wrapper">
+      <div class="marquee-track row-2">
+        
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"I came in for a lash lift and brow lamination and walked out feeling like a completely different person. So professional and the results lasted weeks!"</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#4A0E6B,#C39BD3);">R</div><div><p class="rev-name">Rachel D.</p><p class="rev-date">3 weeks ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"The PicoSure laser completely cleared my sun spots. I was skeptical at first but after two sessions I could not believe the results. Worth every penny!"</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#B89660,#8B6340);">C</div><div><p class="rev-name">Christine B.</p><p class="rev-date">5 weeks ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"My rosacea has been so much calmer since starting treatments here. Sophia knows exactly what products and techniques work for sensitive skin."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#1A5C3A,#3a8a5a);">N</div><div><p class="rev-name">Natalie W.</p><p class="rev-date">1 month ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"Drove from Toronto specifically to visit Eclipse Spa after a friend recommended it. The laser hair removal was painless and the results are phenomenal. Already booked my next session!"</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#2D0845,#6B1FA0);">K</div><div><p class="rev-name">Karen S.</p><p class="rev-date">2 months ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"First time visiting and I was blown away. The consultation was thorough and they really listened to my concerns before recommending a treatment plan."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#7A4520,#B89660);">T</div><div><p class="rev-name">Tanya F.</p><p class="rev-date">3 months ago · Google</p></div></div></div>
+        
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"I came in for a lash lift and brow lamination and walked out feeling like a completely different person. So professional and the results lasted weeks!"</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#4A0E6B,#C39BD3);">R</div><div><p class="rev-name">Rachel D.</p><p class="rev-date">3 weeks ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"The PicoSure laser completely cleared my sun spots. I was skeptical at first but after two sessions I could not believe the results. Worth every penny!"</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#B89660,#8B6340);">C</div><div><p class="rev-name">Christine B.</p><p class="rev-date">5 weeks ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"My rosacea has been so much calmer since starting treatments here. Sophia knows exactly what products and techniques work for sensitive skin."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#1A5C3A,#3a8a5a);">N</div><div><p class="rev-name">Natalie W.</p><p class="rev-date">1 month ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"Drove from Toronto specifically to visit Eclipse Spa after a friend recommended it. The laser hair removal was painless and the results are phenomenal."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#2D0845,#6B1FA0);">K</div><div><p class="rev-name">Karen S.</p><p class="rev-date">2 months ago · Google</p></div></div></div>
+        <div class="rev-tile"><div class="rev-stars"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="rev-text">"First time visiting and I was blown away. The consultation was thorough and they really listened to my concerns before recommending a treatment plan."</p><div class="rev-author"><div class="rev-avatar" style="background:linear-gradient(135deg,#7A4520,#B89660);">T</div><div><p class="rev-name">Tanya F.</p><p class="rev-date">3 months ago · Google</p></div></div></div>
+      </div>
+    </div>
+
+  </section>
+
+    
+  <section id="appointments" style="background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); padding: 7rem 0px;" class="o_colored_level">
+    <div class="max-w-3xl mx-auto px-6">
+      <div style="background:#fff;border-radius:32px;box-shadow:0 20px 60px rgba(74,14,107,.12);padding:3rem 3.5rem;border:1px solid rgba(195,155,211,.2);">
+        <div class="text-center mb-10">
+          <span class="section-eyebrow">Begin Your Journey</span>
+          <h2 style="font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;color:#1A0A2E;margin-top:8px;">Request an Appointment</h2>
+          <div style="width:40px;height:1.5px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:1px;margin:16px auto;"/>
+          <style>/**/
+/* ── Eclipse Spa — Appointment Form ───────────────── */
+.s_website_form { padding: 0 !important; margin-top: 2rem; }
+.s_website_form .container-fluid { padding: 0 !important; }
+
+/* 2-col grid layout */
+.s_website_form .s_website_form_rows {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 1.5rem;
+}
+
+.s_website_form .s_website_form_field { margin-bottom: 0 !important; }
+
+/* Full-width fields */
+.s_website_form .s_website_form_field[data-translated-name="Your Email"],
+.s_website_form .s_website_form_field[data-translated-name="Your Question"],
+.s_website_form .s_website_form_submit { grid-column: 1 / -1; }
+
+/* Hide Company and Subject */
+.s_website_form .s_website_form_field[data-translated-name="Your Company"],
+.s_website_form .s_website_form_field[data-translated-name="Subject"] { display: none !important; }
+
+/* Stack label above input */
+.s_website_form .row.s_col_no_resize { display: block !important; }
+
+/* Labels */
+.s_website_form .s_website_form_label {
+  width: auto !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+  color: #9B59B6 !important;
+  padding: 0 0 6px !important;
+  display: block;
+}
+.s_website_form .s_website_form_mark { color: #C39BD3 !important; font-size: 10px; }
+
+/* Inputs and textarea */
+.s_website_form .form-control.s_website_form_input {
+  background: rgba(195,155,211,.12) !important;
+  border: 1.5px solid rgba(195,155,211,.35) !important;
+  border-radius: 12px !important;
+  padding: 13px 18px !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  color: #1A0A2E !important;
+  width: 100% !important;
+  box-shadow: none !important;
+  transition: border-color .2s, box-shadow .2s !important;
+}
+.s_website_form .form-control.s_website_form_input::placeholder { color: rgba(106,56,130,.45) !important; }
+.s_website_form .form-control.s_website_form_input:focus {
+  border-color: #9B59B6 !important;
+  box-shadow: 0 0 0 3px rgba(155,89,182,.12) !important;
+  outline: none !important;
+  background: rgba(195,155,211,.18) !important;
+}
+.s_website_form textarea.s_website_form_input { resize: vertical !important; min-height: 100px; }
+
+/* Submit */
+.s_website_form_submit { padding: 8px 0 0 !important; text-align: left !important; }
+.s_website_form_submit .s_website_form_label { display: none !important; }
+.s_website_form_send.btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  padding: 16px 32px !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  background: #4A0E6B !important;
+  background-image: none !important;
+  color: #fff !important;
+  border-radius: 14px !important;
+  border: none !important;
+  text-decoration: none !important;
+  transition: background .2s !important;
+}
+.s_website_form_send.btn:hover { background: #6B2A8A !important; }
+
+@media (max-width: 639px) {
+  .s_website_form .s_website_form_rows { grid-template-columns: 1fr !important; }
+  .s_website_form .s_website_form_field,
+  .s_website_form .s_website_form_submit { grid-column: 1 / -1 !important; }
+}
+/**/</style>
+          <section class="s_website_form pt16 pb16 o_colored_level" data-vcss="001" data-snippet="s_website_form" data-name="Form">
+        <div class="container-fluid">
+            <form action="/website/form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-pre-fill="true" data-model_name="crm.lead" data-success-mode="redirect" data-success-page="/contactus-thank-you">
+                <div class="s_website_form_rows row s_col_no_bgcolor">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_required" data-type="char" data-translated-name="Your Name"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="o2g31y3laiho"><span class="s_website_form_label_content">Full Name</span><span class="s_website_form_mark"> *</span></label><div class="col-sm"><input class="form-control s_website_form_input" type="text" name="contact_name" required="1" data-fill-with="name" id="o2g31y3laiho" fdprocessedid="o13cw"/></div></div></div><div data-name="Field" class="s_website_form_field mb-3 col-12" data-type="tel" data-translated-name="Phone Number"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="oospsv31blqh"><span class="s_website_form_label_content">Phone Number</span></label><div class="col-sm"><input class="form-control s_website_form_input" type="tel" name="phone" data-fill-with="phone" id="oospsv31blqh" fdprocessedid="t2zwkg" placeholder="(123) 123-1234"/></div></div></div><div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_required" data-type="email" data-translated-name="Your Email"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="obb9i2jhn7ot"><span class="s_website_form_label_content">Your Email</span><span class="s_website_form_mark"> *</span></label><div class="col-sm"><input class="form-control s_website_form_input" type="email" name="email_from" required="1" data-fill-with="email" id="obb9i2jhn7ot" fdprocessedid="p992gg"/></div></div></div><div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_required" data-type="char" data-translated-name="Your Company"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="om5zwnn0974"><span class="s_website_form_label_content">Your Company</span><span class="s_website_form_mark"> *</span></label><div class="col-sm"><input class="form-control s_website_form_input" type="text" name="partner_name" required="1" data-fill-with="commercial_company_name" id="om5zwnn0974" fdprocessedid="hbk0mq"/></div></div></div><div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_model_required" data-type="char" data-translated-name="Subject"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="oxwh04hm2sg"><span class="s_website_form_label_content">Subject</span><span class="s_website_form_mark"> *</span></label><div class="col-sm"><input class="form-control s_website_form_input" type="text" name="name" required="" id="oxwh04hm2sg" fdprocessedid="hz5twi"/></div></div></div><div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_required" data-type="text" data-translated-name="Your Question"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="o5nfwrbqhng7"><span class="s_website_form_label_content">Your Question</span><span class="s_website_form_mark"> *</span></label><div class="col-sm"><textarea class="form-control s_website_form_input" name="description" required="1" id="o5nfwrbqhng7" rows="3" placeholder="What are your skin concerns or goals?"/></div></div></div><div class="mb-0 py-2 col-12 s_website_form_submit text-end s_website_form_no_submit_label" data-name="Submit Button">
+                        <div style="width: 200px;" class="s_website_form_label"/>
+                        <span id="s_website_form_result"/>
+                        <a href="#" role="button" class="btn btn-primary s_website_form_send o_translate_inline">Submit</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section><p style="font-family:'Lato',sans-serif;font-size:14px;font-weight:300;color:#8A6AA0;line-height:1.7;margin-top:4px;">Fill in your details and our team will reach out to confirm your booking.</p>
+        </div>
+        
+        <div id="form-success" style="background:linear-gradient(135deg,#F0E8FF,#E8D5F5);border:1px solid rgba(155,89,182,.3);border-radius:16px;padding:28px;text-align:center;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" aria-hidden="true" class="lucide lucide-check-circle w-10 h-10 mx-auto mb-3" style="color:var(--purple-primary);"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#1A0A2E;margin-bottom:8px;">Thank You!</h3>
+          <p style="font-family:'Lato',sans-serif;font-size:14px;color:#6B4F80;line-height:1.6;">Your request is received. Our team will contact you within 24 hours to confirm your visit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section style="background:var(--purple-whisper);padding:7rem 0;border-top:1px solid rgba(195,155,211,.15);" class="o_colored_level">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="section-eyebrow">Guest Resources</span>
+        <h2 style="font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;color:#1A0A2E;margin-top:8px;">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-3">
+        <details class="faq-item"><summary>Do you accept insurance or HSA payments?<div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus" aria-hidden="true" class="lucide lucide-plus w-4 h-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div></summary><div class="faq-body">Eclipse Spa operates on a private-pay basis. We do not direct-bill insurance for cosmetic or wellness treatments. However, many massage therapy services may be eligible for reimbursement through your health benefits. We accept all major credit cards, debit, and e-transfer.</div></details>
+        <details class="faq-item"><summary>What is your cancellation policy?<div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus" aria-hidden="true" class="lucide lucide-plus w-4 h-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div></summary><div class="faq-body">We kindly ask for 24 hours notice for any cancellations or rescheduling. Late cancellations or no-shows may be subject to a service fee. Please contact us as soon as possible if you need to reschedule.</div></details>
+        <details class="faq-item"><summary>Is there parking at the spa?<div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus" aria-hidden="true" class="lucide lucide-plus w-4 h-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div></summary><div class="faq-body">Yes! Eclipse Spa offers complimentary parking for all guests directly outside our location. We are also accessible via TTC — please ask our team for the nearest transit options.</div></details>
+        <details class="faq-item"><summary>What should I do to prepare for my appointment?<div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus" aria-hidden="true" class="lucide lucide-plus w-4 h-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div></summary><div class="faq-body">We recommend arriving 10–15 minutes early to complete your intake form and settle in. For facial appointments, arrive with a clean face if possible. For massage, wear comfortable clothing.</div></details>
+        <details class="faq-item"><summary>Do you offer gift cards?<div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus" aria-hidden="true" class="lucide lucide-plus w-4 h-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div></summary><div class="faq-body">Yes, we offer digital gift cards — the perfect gift for loved ones. We also offer curated treatment packages at special rates. Contact us at eclipsespa.ca@gmail.com or ask our reception for current offerings.</div></details>
+      </div>
+    </div>
+  </section>
+
+  
+  <footer id="contact" style="background:var(--purple-deep);padding:5rem 0 2.5rem;color:#fff;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-12 pb-12" style="border-bottom:1px solid rgba(195,155,211,.1);">
+        <div class="col-span-1 md:col-span-2 space-y-5">
+          <div class="flex items-center gap-3">
+            <div style="width:36px;height:36px;position:relative;flex-shrink:0;">
+              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--purple-accent),var(--purple-light));position:absolute;opacity:.8;"/>
+              <div style="width:24px;height:24px;border-radius:50%;background:var(--purple-deep);position:absolute;top:6px;left:10px;"/>
+            </div>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;letter-spacing:.02em;line-height:1.2;">Eclipse Spa<br/><span style="font-weight:300;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:rgba(195,155,211,.85);">&amp;amp; Laser Centre</span></span>
+          </div>
+<p style="font-family:'Lato',sans-serif;font-size:16px;font-weight:300;line-height:1.8;max-width:300px;color:#fff;">Niagara Falls' premier destination for luxury spa treatments, holistic wellness, and radiant transformation.</p>
+        </div>
+        <div>
+<h4 style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Contact</h4>
+          <ul class="space-y-4" style="font-family:'Lato',sans-serif;font-size:13px;">
+            <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" aria-hidden="true" class="lucide lucide-map-pin w-4 h-4 mt-0.5" style="color:rgba(155,89,182,.6);flex-shrink:0;"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span style="line-height:1.6;color:#fff;">4383 Portage Rd, Unit B100<br/>Niagara Falls, ON L2E 6A6</span></li>
+            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" aria-hidden="true" class="lucide lucide-phone w-4 h-4" style="color:rgba(155,89,182,.6);"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg><a href="tel:+12892777140" class="footer-link"><font>(289) 277-7140</font></a></li>
+
+          </ul>
+        </div>
+        <div>
+<h4 style="font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Quick Links</h4>
+          <ul class="space-y-2" style="font-family:'Lato',sans-serif;font-size:13px;color:#fff;">
+            <li><a href="#services" class="footer-link" style="text-decoration: none;"><font style="color: inherit !important;">Our Services</font></a></li>
+            <li><a href="#gallery" class="footer-link" style="text-decoration: none;"><font style="color: inherit !important;">Gallery</font></a></li>
+            <li><a href="#team" class="footer-link" style="text-decoration: none;"><font style="color: inherit !important;">Meet the Team</font></a></li>
+            <li><a href="#appointments" class="footer-link" style="text-decoration: none;"><font style="color: inherit !important;">Book an Appointment</font></a></li>
+            <li><a href="#" class="footer-link" style="text-decoration: none;"><font style="color: inherit !important;">Gift Cards</font></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style="font-family:'Lato',sans-serif;font-size:11px;color:rgba(255,255,255,.6);">
+        <p>© 2026 Eclipse Spa &amp;amp; Laser Centre. All Rights Reserved. Niagara Falls, Ontario, Canada.</p>
+        <div class="flex gap-6">
+          <a href="#" class="footer-link" style="text-decoration: none;"><font style="color: inherit !important;">Privacy Policy</font></a>
+          <a href="#" class="footer-link" style="text-decoration: none;"><font style="color: inherit !important;">Terms of Service</font></a>
+          <a href="#" class="footer-link" style="text-decoration: none;"><font style="color: inherit !important;">Accessibility</font></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+  <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden" style="padding:12px 16px 20px;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-top:1px solid rgba(195,155,211,0.2);box-shadow:0 -4px 20px rgba(74,14,107,0.1);">
+    <a href="#appointments" style="display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#D4AF7A,#B89660);color:#1A0A2E;font-family:'Lato',sans-serif;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:16px;border-radius:14px;text-decoration:none;width:100%;min-height:52px;box-shadow:0 4px 20px rgba(212,175,122,0.45);">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-5 h-5"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg> Book Free Consult
+    </a>
+  </div>
+
+  
+  <script>//
+
+    lucide.createIcons();
+
+    // ── Mobile Menu ──────────────────────────────
+    const toggle = document.getElementById('mobile-toggle');
+    const menu   = document.getElementById('mobile-menu');
+    const links  = document.querySelectorAll('.mobile-link');
+
+    function openMenu() {
+      menu.classList.remove('menu-hidden'); menu.classList.add('menu-visible');
+      toggle.innerHTML = '&lt;i data-lucide="x" class="w-7 h-7"&gt;&lt;/i&gt;';
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+    function closeMenu() {
+      menu.classList.remove('menu-visible'); menu.classList.add('menu-hidden');
+      toggle.innerHTML = '&lt;i data-lucide="menu" class="w-7 h-7"&gt;&lt;/i&gt;';
+      document.body.style.overflow = '';
+      lucide.createIcons();
+    }
+    toggle.addEventListener('click', () =&gt; menu.classList.contains('menu-hidden') ? openMenu() : closeMenu());
+    links.forEach(l =&gt; l.addEventListener('click', closeMenu));
+
+    // ── Nav shadow on scroll ─────────────────────
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () =&gt; {
+      nav.style.boxShadow = window.scrollY &gt; 20 ? '0 4px 24px rgba(74,14,107,0.1)' : 'none';
+    });
+
+    // ── Gallery Carousel ─────────────────────────
+    const track    = document.getElementById('gallery-track');
+    const dotsWrap = document.getElementById('gallery-dots');
+    const viewport = document.getElementById('gallery-viewport');
+    const slides   = track.querySelectorAll('.gallery-slide');
+    const perView  = () =&gt; window.innerWidth &lt; 640 ? 1 : window.innerWidth &lt; 1024 ? 2 : 3;
+    const totalSlides = slides.length;
+    let currentSlide = 0;
+    let autoTimer;
+
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      const pages = Math.ceil(totalSlides / perView());
+      for (let i = 0; i &lt; pages; i++) {
+        const d = document.createElement('button');
+        d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () =&gt; { goTo(i * perView()); resetTimer(); });
+        dotsWrap.appendChild(d);
+      }
+    }
+
+    function updateDots() {
+      const pages = Math.ceil(totalSlides / perView());
+      const activePage = Math.floor(currentSlide / perView());
+      dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) =&gt; {
+        d.classList.toggle('active', i === activePage);
+      });
+    }
+
+    function goTo(idx) {
+      const maxStart = totalSlides - perView();
+      currentSlide = Math.max(0, Math.min(idx, maxStart));
+      const slideWidthPct = 100 / perView();
+      track.style.transform = `translateX(-${currentSlide * slideWidthPct}%)`;
+      updateDots();
+    }
+
+    function next() {
+      const nextIdx = currentSlide + perView() &gt;= totalSlides ? 0 : currentSlide + 1;
+      goTo(nextIdx);
+    }
+    function prev() {
+      const prevIdx = currentSlide === 0 ? totalSlides - perView() : currentSlide - 1;
+      goTo(prevIdx);
+    }
+
+    function resetTimer() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(next, 4500);
+    }
+
+    document.getElementById('gallery-next').addEventListener('click', () =&gt; { next(); resetTimer(); });
+    document.getElementById('gallery-prev').addEventListener('click', () =&gt; { prev(); resetTimer(); });
+
+    buildDots();
+    resetTimer();
+    window.addEventListener('resize', () =&gt; { buildDots(); goTo(currentSlide); });
+
+    // Touch swipe
+    let touchStartX = 0;
+    viewport.addEventListener('touchstart', e =&gt; { touchStartX = e.touches[0].clientX; }, { passive: true });
+    viewport.addEventListener('touchend', e =&gt; {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) &gt; 50) { diff &gt; 0 ? next() : prev(); resetTimer(); }
+    }, { passive: true });
+
+    // ── Scroll-reveal for cards ──────────────────
+    const revealObserver = new IntersectionObserver((entries) =&gt; {
+      entries.forEach(entry =&gt; {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach((el, i) =&gt; {
+      el.style.transition = `opacity 0.65s ease ${i * 55}ms, transform 0.65s ease ${i * 55}ms`;
+      revealObserver.observe(el);
+    });
+
+    // ── Appointment form ─────────────────────────
+    const form = document.getElementById('appointment-form');
+    const success = document.getElementById('form-success');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name    = form.querySelector('[name="name"]').value.trim();
+      const phone   = form.querySelector('[name="phone"]').value.trim();
+      const email   = form.querySelector('[name="email"]').value.trim();
+      const time    = form.querySelector('[name="preferred_time"]').value.trim();
+      const service = form.querySelector('[name="service"]').value.trim();
+      const message = form.querySelector('[name="message"]').value.trim();
+      const body = ['Name: '+name,'Phone: '+phone,'Email: '+email,
+        'Preferred Time: '+(time||'Not specified'),'Service: '+(service||'Not specified'),
+        'Message: '+(message||'None')].join('\n');
+      form.style.display = 'none';
+      success.style.display = 'block';
+      lucide.createIcons();
+      setTimeout(() =&gt; {
+        window.location.href = 'mailto:eclipsespa.ca@gmail.com'
+          + '?subject=' + encodeURIComponent('Appointment Request — '+name)
+          + '&amp;body=' + encodeURIComponent(body);
+      }, 400);
+    });
+
+    // Filter logic — wires both desktop sidebar and mobile pills
+    (function() {
+      const allPills = document.querySelectorAll('.concern-pill');
+      const cards    = document.querySelectorAll('#treatments-grid .flip-wrapper');
+
+      allPills.forEach(pill =&gt; {
+        pill.addEventListener('click', function() {
+          const filter = this.dataset.filter;
+
+          // Sync active state across ALL pills (sidebar + mobile)
+          allPills.forEach(p =&gt; {
+            if (p.dataset.filter === filter) p.classList.add('active');
+            else p.classList.remove('active');
+          });
+
+          // Show/hide cards
+          cards.forEach(card =&gt; {
+            if (filter === 'all' || card.dataset.concern === filter) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  
+//</script>
+    </div>
+  </t>
+</t>
