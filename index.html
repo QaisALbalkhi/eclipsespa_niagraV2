@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="assets/room1.jpg" />
+  <link rel="preload" as="image" href="/web/image/6306" />
 
   <style>
     :root {
@@ -323,8 +323,13 @@
       padding: 0 8px;
       flex-shrink: 0;
     }
-    @media (max-width: 768px) {
-      .gallery-slide { min-width: 80%; }
+    /* Tablet: 2 slides */
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .gallery-slide { min-width: 50%; }
+    }
+    /* Mobile: 1 slide, full-bleed peek */
+    @media (max-width: 639px) {
+      .gallery-slide { min-width: 88%; }
     }
     .gallery-img {
       width: 100%;
@@ -334,7 +339,26 @@
       display: block;
       transition: transform 0.4s ease;
     }
+    @media (max-width: 639px) {
+      .gallery-img { height: 320px; }
+    }
     .gallery-img:hover { transform: scale(1.02); }
+    .gallery-nav-btn {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(155,89,182,.4);
+      background: #fff;
+      color: var(--purple-primary);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .25s ease, color .25s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .gallery-nav-btn:hover,
+    .gallery-nav-btn:active {
+      background: var(--purple-primary);
+      color: #fff;
+    }
 
     .carousel-dot {
       width: 8px;
@@ -910,15 +934,8 @@
     <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
 
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-3 z-50 relative">
-        <div style="width:40px;height:40px;position:relative;flex-shrink:0;">
-          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--purple-primary),var(--purple-accent));position:absolute;"></div>
-          <div style="width:26px;height:26px;border-radius:50%;background:var(--purple-whisper);position:absolute;top:7px;left:11px;"></div>
-        </div>
-        <div>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--purple-primary);line-height:1;letter-spacing:.02em;display:block;">Eclipse</span>
-          <span style="font-family:'Lato',sans-serif;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-accent);display:block;margin-top:1px;">Spa and Laser Centre</span>
-        </div>
+      <a href="#" class="flex items-center z-50 relative">
+        <img src="/web/image/6305" alt="Eclipse Spa and Laser Centre" style="height:64px;width:auto;display:block;" />
       </a>
 
       <!-- Desktop Links -->
@@ -951,10 +968,6 @@
         <a href="tel:+12892777140" class="flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-r from-[#D4AF7A] to-[#B89660] text-purple-950 shadow-md" aria-label="Call Eclipse Spa">
           <i data-lucide="phone" class="w-4 h-4"></i>
         </a>
-        <!-- Mobile toggle -->
-        <button id="mobile-toggle" class="p-2 text-purple-900" aria-label="Toggle Menu">
-          <i data-lucide="menu" class="w-7 h-7"></i>
-        </button>
       </div>
     </div>
 
@@ -981,7 +994,7 @@
   <header class="hero-wrap">
     <!-- Looping video -->
     <video class="hero-video" autoplay muted loop playsinline preload="auto"
-           poster="assets/room1.jpg">
+           poster="/web/image/6306">
       <source src="assets/hero.mp4" type="video/mp4" />
       <!-- Fallback gradient if video fails -->
     </video>
@@ -1321,28 +1334,23 @@
   </section>
 
   <!-- ══ GALLERY CAROUSEL ══════════════════════════ -->
-  <section id="gallery" style="background:var(--purple-whisper);padding:7rem 0;overflow:hidden;">
+  <section id="gallery" style="background:var(--purple-whisper);padding:clamp(3rem,8vw,7rem) 0;overflow:hidden;">
     <div class="max-w-7xl mx-auto px-6">
 
-      <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+      <!-- Header: centred on mobile, split row on md+ -->
+      <div class="flex flex-col items-center text-center md:flex-row md:justify-between md:items-end md:text-left mb-10 gap-4">
         <div>
           <span class="section-eyebrow">Inside Eclipse Spa</span>
-          <h2 style="font-size:clamp(2rem,4.5vw,3rem);font-weight:400;color:#1A0A2E;margin-top:8px;margin-bottom:24px;text-align:center;">
+          <h2 style="font-size:clamp(2rem,4.5vw,3rem);font-weight:400;color:#1A0A2E;margin-top:8px;margin-bottom:0;">
             Our Serene<br><em style="font-style:italic;font-weight:300;">Sanctuary</em>
           </h2>
         </div>
 
-<div class="flex items-center gap-3 mt-6 md:mt-0">
-          <button id="gallery-prev" aria-label="Previous"
-                  style="width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(155,89,182,.4);background:#fff;color:var(--purple-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s ease;"
-                  onmouseenter="this.style.background='var(--purple-primary)';this.style.color='#fff';"
-                  onmouseleave="this.style.background='#fff';this.style.color='var(--purple-primary)';">
+        <div class="flex items-center gap-3">
+          <button id="gallery-prev" class="gallery-nav-btn" aria-label="Previous">
             <i data-lucide="chevron-left" class="w-5 h-5"></i>
           </button>
-          <button id="gallery-next" aria-label="Next"
-                  style="width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(155,89,182,.4);background:#fff;color:var(--purple-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s ease;"
-                  onmouseenter="this.style.background='var(--purple-primary)';this.style.color='#fff';"
-                  onmouseleave="this.style.background='#fff';this.style.color='var(--purple-primary)';">
+          <button id="gallery-next" class="gallery-nav-btn" aria-label="Next">
             <i data-lucide="chevron-right" class="w-5 h-5"></i>
           </button>
         </div>
@@ -1353,54 +1361,47 @@
         <div class="gallery-track" id="gallery-track">
           <div class="gallery-slide">
             <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
-              <img src="assets/room4.jpg" alt="Eclipse Spa Laser Suite" class="gallery-img" loading="lazy" />
+              <img src="/web/image/6306" alt="Eclipse Spa — Gallery 1" class="gallery-img" loading="lazy" />
             </div>
           </div>
           <div class="gallery-slide">
             <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
-              <img src="assets/image_9.jpg" alt="Eclipse Spa Interior" class="gallery-img" loading="lazy" />
+              <img src="/web/image/6307" alt="Eclipse Spa — Gallery 2" class="gallery-img" loading="lazy" />
             </div>
           </div>
-          <!-- Slide 1 — treatment room -->
           <div class="gallery-slide">
             <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
-              <img src="assets/room1.jpg" alt="Eclipse Spa Treatment Room" class="gallery-img" loading="lazy" />
+              <img src="/web/image/6308" alt="Eclipse Spa — Gallery 3" class="gallery-img" loading="lazy" />
             </div>
           </div>
-          <!-- Slide 2 — product display -->
           <div class="gallery-slide">
             <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
-              <img src="assets/room2.jpg" alt="Eclipse Spa Product Collection" class="gallery-img" loading="lazy" />
+              <img src="/web/image/6309" alt="Eclipse Spa — Gallery 4" class="gallery-img" loading="lazy" />
             </div>
           </div>
-          <!-- Slide 3 — products laid out -->
           <div class="gallery-slide">
             <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
-              <img src="assets/room3.jpg" alt="Eclipse Spa Skincare Products" class="gallery-img" loading="lazy" />
+              <img src="/web/image/6310" alt="Eclipse Spa — Gallery 5" class="gallery-img" loading="lazy" />
             </div>
           </div>
-          <!-- Slide 4 — laser room -->
           <div class="gallery-slide">
             <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
-              <img src="assets/room4.jpg" alt="Eclipse Spa Laser Suite" class="gallery-img" loading="lazy" />
+              <img src="/web/image/6311" alt="Eclipse Spa — Gallery 6" class="gallery-img" loading="lazy" />
             </div>
           </div>
-          <!-- Slide 7 -->
           <div class="gallery-slide">
             <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
-              <img src="assets/image_14.jpg" alt="Eclipse Spa Treatment" class="gallery-img" loading="lazy" />
+              <img src="/web/image/6312" alt="Eclipse Spa — Gallery 7" class="gallery-img" loading="lazy" />
             </div>
           </div>
-          <!-- Slide 8 -->
           <div class="gallery-slide">
             <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
-              <img src="assets/image_15.jpg" alt="Eclipse Spa and Laser Centre treatment room in Niagara Falls" class="gallery-img" loading="lazy" />
+              <img src="/web/image/6313" alt="Eclipse Spa — Gallery 8" class="gallery-img" loading="lazy" />
             </div>
           </div>
-          <!-- Slide 9 -->
           <div class="gallery-slide">
             <div style="overflow:hidden;border-radius:20px;box-shadow:0 8px 30px rgba(74,14,107,0.12);">
-              <img src="assets/image_16.jpg" alt="Eclipse Spa skincare products and treatment setup" class="gallery-img" loading="lazy" />
+              <img src="/web/image/6314" alt="Eclipse Spa — Gallery 9" class="gallery-img" loading="lazy" />
             </div>
           </div>
         </div>
@@ -1447,7 +1448,7 @@
         <div class="team-card">
           <div style="height:320px;position:relative;background:linear-gradient(160deg,#C4A8D8,#8B5E9E);overflow:hidden;">
             <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
-              <source src="assets/samantha.mp4" type="video/mp4" />
+              <source src="/web/content/6315" type="video/mp4" />
             </video>
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,46,0.4) 0%,transparent 55%);pointer-events:none;"></div>
           </div>
@@ -1620,36 +1621,6 @@
           <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#1A0A2E;margin-bottom:8px;">Thank You!</h3>
           <p style="font-family:'Lato',sans-serif;font-size:14px;color:#6B4F80;line-height:1.6;">Your request is received. Our team will contact you within 24 hours to confirm your visit.</p>
         </div>
-        <form id="appointment-form" class="space-y-6" action="mailto:eclipsespa.ca@gmail.com" method="POST" enctype="text/plain">
-          <div class="grid md:grid-cols-2 gap-5">
-            <div><label class="form-label" for="f-name">Full Name</label><input id="f-name" type="text" name="name" required placeholder="Your full name" class="form-input" autocomplete="name" /></div>
-            <div><label class="form-label" for="f-phone">Phone Number</label><input id="f-phone" type="tel" name="phone" required placeholder="(289) 000-0000" class="form-input" autocomplete="tel" /></div>
-          </div>
-          <div><label class="form-label" for="f-email">Email Address</label><input id="f-email" type="email" name="email" required placeholder="you@example.com" class="form-input" autocomplete="email" /></div>
-          <div class="grid md:grid-cols-2 gap-5">
-            <div><label class="form-label" for="f-time">Preferred Day / Time</label><input id="f-time" type="text" name="preferred_time" placeholder="e.g., Weekdays after 3pm" class="form-input" /></div>
-            <div>
-              <label class="form-label" for="f-service">Service of Interest</label>
-              <select id="f-service" name="service" class="form-input">
-                <option value="">Select a treatment…</option>
-                <option>General Consultation</option>
-                <option>Signature Facial</option>
-                <option>Therapeutic Massage</option>
-                <option>Body Wrap or Scrub</option>
-                <option>Laser Hair Removal</option>
-                <option>Microdermabrasion</option>
-                <option>Lash &amp; Brow</option>
-                <option>Waxing Services</option>
-                <option>Skin Rejuvenation</option>
-              </select>
-            </div>
-          </div>
-          <div><label class="form-label" for="f-message">Message / Special Requests</label><textarea id="f-message" name="message" rows="3" placeholder="Tell us about your skin goals or any concerns…" class="form-input" style="resize:vertical;"></textarea></div>
-          <button type="submit" class="btn-primary w-full justify-center" style="padding:16px 32px;font-size:13px;border-radius:14px;">
-            <i data-lucide="send" class="w-4 h-4"></i> Send My Request
-          </button>
-          <p style="font-family:'Lato',sans-serif;font-size:12px;color:#C0A8D8;text-align:center;line-height:1.6;">We respect your privacy. Your details are only used to confirm your appointment.</p>
-        </form>
       </div>
     </div>
   </section>
@@ -1758,8 +1729,7 @@
     const dotsWrap = document.getElementById('gallery-dots');
     const viewport = document.getElementById('gallery-viewport');
     const slides   = track.querySelectorAll('.gallery-slide');
-    const isMobile = () => window.innerWidth < 768;
-    const perView  = () => isMobile() ? 1 : 3;
+    const perView  = () => window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
     const totalSlides = slides.length;
     let currentSlide = 0;
     let autoTimer;
